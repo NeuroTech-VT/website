@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Swarm — Research — NeuroTech@VT</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+    <div class="root" id="root">
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <span>
+                    <span class="status-dot"></span>
+                    Virginia Tech · Blacksburg, VA
+                </span>
+            </div>
+            <div class="topbar-right">
+                <a href="#">GitHub</a>
+                <a href="#">arXiv</a>
+                <a href="#">Contact</a>
+                <button class="toggle-btn" onclick="toggleTheme()">[ ☀ / ☾ ]</button>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <nav class="nav">
+            <a href="../index.html" class="nav-logo">
+                <img src="../NeuroTech_VT_cropped.svg" alt="logo">
+            </a>
+            <div class="nav-links">
+                <a href="../research.html" class="active scramble-hover" data-label="Research">Research</a>
+                <a href="../team.html" class="scramble-hover" data-label="Team">Team</a>
+                <a href="../blog.html" class="scramble-hover" data-label="Blog">Blog</a>
+                <a href="../sponsors.html" class="scramble-hover" data-label="Sponsors">Sponsors</a>
+            </div>
+            <div class="nav-right">
+                <span>AY 2025–26</span>
+            </div>
+        </nav>
+
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb">
+            <a href="../research.html">← Research</a>
+            <span>/ Drone Swarm</span>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <canvas id="halftone-hero"></canvas>
+            <div class="hero-gradient"></div>
+            <div class="hero-main">
+                <div>
+                    <div class="hero-tag">// swarm intelligence · autonomous systems · active</div>
+                    <div class="hero-title">
+                        Drone Swarm<br>
+                        <em>via Decentralized Control.</em>
+                    </div>
+                    <div class="hero-desc">
+                        A multi-agent autonomous drone platform exploring swarm intelligence and distributed coordination algorithms.<span class="hero-break"></span>
+                        Targeting intent-based swarm direction through BCI integration.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="project-col">
+
+            <div class="project-section">
+                <div class="project-section-label">// overview</div>
+                <p>
+                    This project builds a platform for researching swarm intelligence using a small fleet of autonomous quadrotors.
+                    The core question: how do you coordinate multiple agents efficiently without a central controller — and can that coordination eventually be driven by decoded human intent?
+                </p>
+                <p>
+                    The current system runs 5 Crazyflie 2.1 drones communicating over a peer-to-peer UDP mesh.
+                    Each drone runs an onboard consensus algorithm that negotiates formation positions and obstacle-avoidance priorities locally, without routing commands through a ground station.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// control architecture</div>
+                <p>
+                    The swarm operates in three layered control modes. At the lowest level, each drone runs a PID attitude controller and a local collision-avoidance reactive layer.
+                    Above that, a distributed consensus protocol — based on a modified Raft variant — lets drones agree on a shared formation target within ~45 ms.
+                </p>
+                <p>
+                    The high-level planner is where we're iterating most actively.
+                    We've implemented and compared two approaches: a hand-coded rule-based planner for benchmarking, and a centralized-training / decentralized-execution reinforcement learning policy trained in simulation using Isaac Gym.
+                    The RL policy transfers to real hardware with a ~15% performance drop, which we're closing through domain randomization.
+                </p>
+                <p>
+                    The third planned control mode is BCI-driven: decoded motor imagery or imagined spatial directions from the EEG wheelchair project would be mapped to swarm formation commands, allowing a user to direct the group with thought alone.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// hardware</div>
+                <p>
+                    Each drone is a Bitcraze Crazyflie 2.1 with a Flow Deck v2 (optical flow + ToF ranging for indoor positioning) and a Multi-ranger Deck for 360° obstacle detection.
+                    Ground truth position tracking during development uses a 6-camera Vicon motion capture system in the VT Aerospace Lab.
+                </p>
+                <p>
+                    The base station runs the formation planner and BCI bridge on an Intel NUC, communicating with the swarm via Crazyradio PA at 2.4 GHz.
+                    Custom firmware modifications expose additional telemetry fields and allow dynamic parameter updates mid-flight.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// timeline</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Fall 2025</div>
+                        <div class="timeline-body"><span class="timeline-check">✓</span> <strong>Platform setup.</strong> 5 Crazyflies operational. Vicon integration, basic formation holding with rule-based planner.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 2026</div>
+                        <div class="timeline-body"><span class="timeline-check">✓</span> <strong>Consensus protocol.</strong> Distributed Raft-based formation consensus implemented. Measured latency ~45 ms over UDP mesh.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Mar 2026</div>
+                        <div class="timeline-body"><span class="timeline-check">✓</span> <strong>RL policy sim-to-real.</strong> CTDE policy trained in Isaac Gym, transferred to hardware. Formation accuracy ±12 cm.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Apr–Jun 2026</div>
+                        <div class="timeline-body"><span class="timeline-active">→</span> <strong>BCI bridge integration.</strong> Wiring EEG wheelchair decoder output to swarm formation commands. Closed-loop user study design.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Fall 2026</div>
+                        <div class="timeline-body"><span class="timeline-todo">○</span> <strong>Scale to 10 drones.</strong> Expand swarm, stress-test consensus protocol, user study with BCI control.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// related &amp; next steps</div>
+                <p>
+                    The BCI integration arm of this project depends directly on the
+                    <a href="eeg-wheelchair.html" class="link">EEG-Controlled Wheelchair</a> decoder pipeline —
+                    decoded motor imagery commands will be remapped from wheelchair navigation vectors to swarm formation targets.
+                </p>
+                <p>
+                    Near-term priorities are closing the sim-to-real gap further via domain randomization, expanding to 10 drones, and designing the first closed-loop BCI swarm control user study.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span>NEUROTECH@VT · Virginia Tech · Blacksburg, VA 24061</span>
+            <span class="meta">// not affiliated with Neuralink, Synchron, or any commercial BCI entity</span>
+            <span>CC-BY 4.0 · research outputs</span>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

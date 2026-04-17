@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEG-Controlled Wheelchair — Research — NeuroTech@VT</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+    <div class="root" id="root">
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <span>
+                    <span class="status-dot"></span>
+                    Virginia Tech · Blacksburg, VA
+                </span>
+            </div>
+            <div class="topbar-right">
+                <a href="#">GitHub</a>
+                <a href="#">arXiv</a>
+                <a href="#">Contact</a>
+                <button class="toggle-btn" onclick="toggleTheme()">[ ☀ / ☾ ]</button>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <nav class="nav">
+            <a href="../index.html" class="nav-logo">
+                <img src="../NeuroTech_VT_cropped.svg" alt="logo">
+            </a>
+            <div class="nav-links">
+                <a href="../research.html" class="active scramble-hover" data-label="Research">Research</a>
+                <a href="../team.html" class="scramble-hover" data-label="Team">Team</a>
+                <a href="../blog.html" class="scramble-hover" data-label="Blog">Blog</a>
+                <a href="../sponsors.html" class="scramble-hover" data-label="Sponsors">Sponsors</a>
+            </div>
+            <div class="nav-right">
+                <span>AY 2025–26</span>
+            </div>
+        </nav>
+
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb">
+            <a href="../research.html">← Research</a>
+            <span>/ EEG-Controlled Wheelchair</span>
+        </div>
+
+        <!-- PROJECT TABS -->
+        <div class="project-tabs">
+            <a href="eeg-wheelchair.html" class="project-tab active">Overview</a>
+            <a href="eeg-wheelchair-software.html" class="project-tab">Software</a>
+            <a href="eeg-wheelchair-hardware.html" class="project-tab">Hardware</a>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <canvas id="halftone-hero"></canvas>
+            <div class="hero-gradient"></div>
+            <div class="hero-main">
+                <div>
+                    <div class="hero-tag">// flagship · motor imagery · active</div>
+                    <div class="hero-title">
+                        EEG-Controlled<br>
+                        Wheelchair<br>
+                        <em>via Motor Imagery.</em>
+                    </div>
+                    <div class="hero-desc">
+                        An electric wheelchair add-on driven by three motor imagery classes: imagined foot movement (forward), right hand (right turn), and rest.<span class="hero-break"></span>
+                        Built entirely by undergraduates on commodity hardware.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="project-col">
+
+            <div class="project-section">
+                <div class="project-section-label">// overview</div>
+                <p>
+                    An electric wheelchair add-on that translates motor imagery signals into joystick control commands, enabling hands-free navigation. The device is designed to mount on top of any standard electric wheelchair joystick.
+                </p>
+
+                --- paragraph 2 ver 1
+
+                <p>
+                    The initial prototype uses three classes: feet (forward), right hand (rotate right), and rest. This is a deliberate choice to minimize system complexity and prioritize a functional, usable prototype over premature feature expansion. The final product will support user-configurable handedness (right or left rotation) or full 4-class control: feet (forward), right hand (rotate right), left hand (rotate left), and rest.
+                </p>
+
+                --- paragraph 2 ver 2
+
+                <p>
+                    We work with feet/right hand/rest while prototyping, the final product will allow the user to either choose between rotating right with right hand or rotating left with left hand, or just using a 4-way classification, go forward (feet), rotate right (right hand), rotate left (left hand), rest. 
+                </p>
+                <p>
+                    The design choice of strarting with "go forward, rotate right and rest" is intentional, and meant to minimize the complexity of the system to focus on creating a working and easy to use prototype instead of getting distracted by flattering unnecessary features. 
+                </p>
+                <p>
+                    [add short description about the joystick cap]
+                </p>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// signal processing pipeline &nbsp;<a href="eeg-wheelchair-software.html" class="link" style="font-size:9px;letter-spacing:.08em;">→ full software page</a></div>
+                <p>
+                    We begin with conventional classification models such as LDA and SVM with CSP features, as they are lightweight and predictable. If these hit a wall in accuracy, we will move to deep learning approaches like CNNs or transformers. 
+                </p>
+                <p>
+                    All models are benchmarked against MOABB (Mother of All BCI Benchmarks) for standardized comparison.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// hardware &nbsp;<a href="eeg-wheelchair-hardware.html" class="link" style="font-size:9px;letter-spacing:.08em;">→ full hardware page</a></div>
+                <p>
+                    [add description here]
+                </p>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// timeline</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Fall 2024</div>
+                        <div class="timeline-body"><span class="timeline-check">✓</span> <strong>Project kickoff.</strong> Acquired OpenBCI Cyton. First EEG recordings, baseline motor imagery paradigm established.</div>
+                    </div>
+                    <span class="timeline-active">→</span>
+                    <span class="timeline-todo">○</span>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <div class="project-section-label">// related &amp; next steps</div>
+                <p>
+                    The annotation and preprocessing work from this project feeds directly into the
+                    <a href="bci-pipeline.html" class="link">Open BCI Data Pipeline</a> and our planned
+                    <a href="neurotech-dataset.html" class="link">open motor imagery dataset</a>.
+                </p>
+                <p>
+                    Next steps: 
+                    - Allow for continuous input alongside discrete commands (for example, one command to go forward by 8 feets instead of 4 commands of moving 2 feets forward)
+                </p>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span>NEUROTECH@VT · Virginia Tech · Blacksburg, VA 24061</span>
+            <span class="meta">// not affiliated with Neuralink, Synchron, or any commercial BCI entity</span>
+            <span>CC-BY 4.0 · research outputs</span>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

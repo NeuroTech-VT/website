@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - NeuroTech@VT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="team.css">
+</head>
+<body>
+
+    <div class="root" id="root">
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <span>
+                    <span class="status-dot"></span>
+                    Virginia Tech · Blacksburg, VA
+                </span>
+            </div>
+            <div class="topbar-right">
+                <a href="#">GitHub</a>
+                <a href="#">arXiv</a>
+                <a href="#">Contact</a>
+                <button class="toggle-btn" onclick="toggleTheme()">[ ☀ / ☾ ]</button>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <nav class="nav">
+            <a href="index.html" class="nav-logo">
+                <img src="NeuroTech_VT_cropped.svg" alt="logo">
+            </a>
+            <div class="nav-links">
+                <a href="research.html" class="scramble-hover" data-label="Research">Research</a>
+                <a href="team.html" class="active scramble-hover" data-label="Team">Team</a>
+                <a href="blog.html" class="scramble-hover" data-label="Blog">Blog</a>
+                <a href="sponsors.html" class="scramble-hover" data-label="Sponsors">Sponsors</a>
+            </div>
+            <div class="nav-right">
+                <span>AY 2025–26</span>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="hero">
+            <canvas id="halftone-hero"></canvas>
+            <div class="hero-gradient"></div>
+            <div class="hero-main">
+                <div>
+                    <div class="hero-tag">// team · students · advisors</div>
+                    <div class="hero-title">
+                        The Team<br>
+                        <em>Lorem ipsum dolor sit amet.</em>
+                    </div>
+                    <div class="hero-desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn-primary">JOIN US →</button>
+                        <button class="btn-secondary">VIEW ALUMNI</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAM CONTENT -->
+        <div class="team-col">
+            <div class="member-section-header"><span>members</span></div>
+            <div class="member-card-grid">
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Lorem Ipsum</div>
+                    <div class="member-card2-major">Junior · EE</div>
+                    <div class="member-card2-desc">Signal processing pipeline and system architecture.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">LinkedIn ↗</a>
+                        <a href="#" class="member-card2-btn">Website ↗</a>
+                    </div>
+                </div>
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Dolor Sit Amet</div>
+                    <div class="member-card2-major">Senior · CS</div>
+                    <div class="member-card2-desc">Embedded systems and hardware integration.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">LinkedIn ↗</a>
+                    </div>
+                </div>
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Consectetur Adipiscing</div>
+                    <div class="member-card2-major">Sophomore · Neuroscience</div>
+                    <div class="member-card2-desc">EEG data collection and annotation. CSP pipeline testing.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">LinkedIn ↗</a>
+                    </div>
+                </div>
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Eiusmod Tempor</div>
+                    <div class="member-card2-major">Senior · BME</div>
+                    <div class="member-card2-desc">Motor imagery paradigm design and subject testing protocols.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">LinkedIn ↗</a>
+                        <a href="#" class="member-card2-btn">Website ↗</a>
+                    </div>
+                </div>
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Elit Sed Do</div>
+                    <div class="member-card2-major">Junior · CS</div>
+                    <div class="member-card2-desc">Real-time classifier deployment and BrainFlow SDK integration.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">LinkedIn ↗</a>
+                    </div>
+                </div>
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Incididunt Ut Labore</div>
+                    <div class="member-card2-major">Sophomore · EE</div>
+                    <div class="member-card2-desc">PCB design and CAN bus hardware interface.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">LinkedIn ↗</a>
+                        <a href="#" class="member-card2-btn">Website ↗</a>
+                    </div>
+                </div>
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Tempor Incididunt</div>
+                    <div class="member-card2-major">Junior · ECE</div>
+                    <div class="member-card2-desc">Firmware development and sensor fusion for the headset module.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">LinkedIn ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-section-header"><span>faculty advisors</span></div>
+            <div class="member-card-grid">
+                <div class="member-card2">
+                    <div class="member-card2-photo"></div>
+                    <div class="member-card2-name">Dolore Magna Aliqua</div>
+                    <div class="member-card2-major">Faculty · ECE</div>
+                    <div class="member-card2-desc">Faculty liaison. Advises on research direction and conference submissions.</div>
+                    <div class="member-card2-links">
+                        <a href="#" class="member-card2-btn">Website ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALLERY -->
+        <div class="gallery-section">
+            <div class="member-section-header">
+                <span>photos</span>
+            </div>
+            <h2 class="sr-only">Cinematic film strip photo gallery — click or use arrow keys to navigate between photos</h2>
+            <div class="filmstrip-stage" id="filmstripStage">
+                <div class="film-row" id="filmRow"></div>
+                <div class="filmstrip-meta-bar">
+                    <div class="filmstrip-meta-left">
+                        <div class="filmstrip-meta-title" id="metaTitle">—</div>
+                        <div class="filmstrip-meta-exif" id="metaExif">—</div>
+                    </div>
+                    <div class="filmstrip-meta-right">
+                        <span class="filmstrip-counter" id="filmCounter">01 / 06</span>
+                        <button class="filmstrip-nav-btn" id="btnPrev" aria-label="Previous">&#8592;</button>
+                        <button class="filmstrip-nav-btn" id="btnNext" aria-label="Next">&#8594;</button>
+                    </div>
+                </div>
+                <div class="filmstrip-bar">
+                    <span class="filmstrip-bar-label">KODAK PORTRA 400</span>
+                    <div class="filmstrip-progress-strip"><div class="filmstrip-progress-fill" id="progressFill"></div></div>
+                    <span class="filmstrip-bar-label" id="rollLabel">036</span>
+                </div>
+            </div>
+        </div>
+
+        <style>
+          .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+          .filmstrip-stage{border-radius:8px;overflow:hidden;padding:2rem 0 1.5rem;user-select:none}
+          .film-row{position:relative;height:420px;overflow:hidden}
+          .frame-wrap{display:flex;flex-direction:column;align-items:center;cursor:pointer;position:absolute;bottom:20px;left:50%;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.5s cubic-bezier(0.4,0,0.2,1)}
+          .frame-wrap:hover .frame-inner{border-color:var(--fg2)}
+          .frame-inner{border:3px solid var(--fg3);background:var(--bg3);overflow:hidden;position:relative;width:280px;height:300px;transition:border-color 0.5s}
+          .sprockets{display:flex;justify-content:space-between;padding:0 6px;height:18px;align-items:center;flex-shrink:0;background:var(--filmstrip-sprocket-bg);width:280px}
+          .sprocket{width:12px;height:10px;border-radius:2px;background:var(--bg);border:none}
+          .photo-fill{width:100%;height:100%;object-fit:cover;display:block;transition:opacity 0.4s}
+          .photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+          .frame-code{font-family:'Courier New',monospace;font-size:9px;color:var(--fg3);margin-top:4px;letter-spacing:0.05em;transition:color 0.3s}
+          .frame-wrap.active .frame-code{color:var(--fg2)}
+          .frame-wrap.active .frame-inner{border-color:var(--fg)}
+          .light .frame-wrap.active .frame-inner{border-color:#3a3836}
+          .filmstrip-meta-bar{padding:1.25rem 1.5rem 0;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+          .filmstrip-meta-left{display:flex;flex-direction:column;gap:4px}
+          .filmstrip-meta-title{font-size:15px;font-weight:500;color:var(--fg);transition:opacity 0.3s}
+          .filmstrip-meta-exif{font-family:'Courier New',monospace;font-size:11px;color:var(--fg3);letter-spacing:0.03em}
+          .filmstrip-meta-right{display:flex;gap:8px;align-items:center}
+          .filmstrip-nav-btn{width:32px;height:32px;border-radius:50%;border:0.5px solid var(--border2);background:transparent;color:var(--fg2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.2s;flex-shrink:0}
+          .filmstrip-nav-btn:hover{border-color:var(--fg2);color:var(--fg)}
+          .filmstrip-nav-btn:active{transform:scale(0.95)}
+          .filmstrip-counter{font-family:'Courier New',monospace;font-size:11px;color:var(--fg3);white-space:nowrap}
+          .filmstrip-bar{display:flex;align-items:center;padding:8px 1.5rem 0;gap:6px}
+          .filmstrip-bar-label{font-family:'Courier New',monospace;font-size:9px;color:var(--fg3);letter-spacing:0.1em;flex-shrink:0}
+          .filmstrip-progress-strip{flex:1;height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
+          .filmstrip-progress-fill{height:100%;background:var(--fg2);border-radius:2px;transition:width 0.4s cubic-bezier(0.4,0,0.2,1)}
+          :root{--filmstrip-sprocket-bg:rgba(90,85,78,0.72)}
+          .light{--filmstrip-sprocket-bg:rgba(160,148,128,0.55)}
+          .fp-1{background:#1a2a3a}.fp-2{background:#0C2010}.fp-3{background:#2a1a10}
+          .fp-4{background:#1a1030}.fp-5{background:#2a1010}.fp-6{background:#10202a}
+          .light .fp-1{background:#8aaec8}.light .fp-2{background:#7aab88}.light .fp-3{background:#c4a882}
+          .light .fp-4{background:#9a8fbc}.light .fp-5{background:#c4956a}.light .fp-6{background:#7aa898}
+        </style>
+
+        <script>
+        (function() {
+          const photos = [
+            {title:"// team · AY 2025–26",     exif:"group photo  fall 2025",         code:"001A",cls:"fp-1",accent:"#85B7EB"},
+            {title:"// lab setup",              exif:"EEG rig  bench test",            code:"002A",cls:"fp-2",accent:"#5DCAA5"},
+            {title:"// wheelchair prototype",   exif:"v1 chassis  integration test",   code:"003A",cls:"fp-3",accent:"#F0997B"},
+            {title:"// EEG session",            exif:"motor imagery  subject 04",      code:"004A",cls:"fp-4",accent:"#AFA9EC"},
+            {title:"// PCB v2",                 exif:"CAN bus board  rev B",           code:"005A",cls:"fp-5",accent:"#EF9F27"},
+            {title:"// demo day",               exif:"spring showcase  April 2025",    code:"006A",cls:"fp-6",accent:"#97C459"},
+          ];
+
+          const total = photos.length;
+          const VISIBLE = 5;
+          const half = Math.floor(VISIBLE / 2);
+          let active = 2;
+          let animating = false;
+          const row = document.getElementById('filmRow');
+
+          const slots = {
+            '-2': [-330, 0.38, 0.4, -3,   40, 8, 7],
+            '-1': [-180, 0.58, 0.7, -1.5, 20, 9, 7],
+            '0':  [0,    1,    1,   0,    0,  10, 7],
+            '1':  [180,  0.58, 0.7, 1.5,  20, 9, 7],
+            '2':  [330,  0.38, 0.4, 3,    40, 8, 7],
+          };
+
+          const framePool = {};
+
+          function sprocketHTML(n) {
+            let h = '';
+            for (let i = 0; i < n; i++) h += '<div class="sprocket"></div>';
+            return h;
+          }
+
+          function createFrame(idx) {
+            const p = photos[idx];
+            const wrap = document.createElement('div');
+            wrap.className = 'frame-wrap';
+            wrap.dataset.idx = idx;
+            wrap.innerHTML =
+              '<div class="sprockets" data-role="top"></div>' +
+              '<div class="frame-inner"><div class="photo-placeholder ' + p.cls + '">' +
+              '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="opacity:0.4">' +
+              '<rect x="3" y="7" width="22" height="16" rx="2" stroke="' + p.accent + '" stroke-width="1.2"/>' +
+              '<circle cx="14" cy="15" r="4.5" stroke="' + p.accent + '" stroke-width="1.2"/>' +
+              '<path d="M9 7V6a2 2 0 012-2h6a2 2 0 012 2v1" stroke="' + p.accent + '" stroke-width="1.2"/>' +
+              '<circle cx="21" cy="11" r="1" fill="' + p.accent + '"/>' +
+              '</svg></div></div>' +
+              '<div class="sprockets" data-role="bot"></div>' +
+              '<div class="frame-code">' + p.code + ' \u25aa ' + String(idx + 1).padStart(2, '0') + '</div>';
+            wrap.addEventListener('click', () => {
+              if (animating) return;
+              const offset = ((idx - active) % total + total + half) % total - half;
+              if (offset === 0) return;
+              navigate(offset > 0 ? 1 : -1);
+            });
+            row.appendChild(wrap);
+            framePool[idx] = wrap;
+            return wrap;
+          }
+
+          function positionFrame(wrap, slot, withTransition) {
+            const [x, sc, opacity, rot, ty, z, nSpr] = slot;
+            if (!withTransition) wrap.style.transition = 'none';
+            wrap.style.transform = 'translateX(' + x + 'px) translateX(-50%) translateY(' + ty + 'px) rotate(' + rot + 'deg) scale(' + sc + ')';
+            wrap.style.opacity = opacity;
+            wrap.style.zIndex = z;
+            wrap.className = 'frame-wrap' + (sc === 1 && opacity === 1 ? ' active' : '');
+            wrap.querySelector('[data-role="top"]').innerHTML = sprocketHTML(nSpr);
+            wrap.querySelector('[data-role="bot"]').innerHTML = sprocketHTML(nSpr);
+            if (!withTransition) { wrap.getBoundingClientRect(); wrap.style.transition = ''; }
+          }
+
+          function getVisibleIndices() {
+            const indices = [];
+            for (let o = -half; o <= half; o++) indices.push(((active + o) % total + total) % total);
+            return indices;
+          }
+
+          function render(withTransition) {
+            const visible = getVisibleIndices();
+            const visibleSet = new Set(visible);
+            for (const idx in framePool) {
+              if (!visibleSet.has(Number(idx))) {
+                const wrap = framePool[idx];
+                delete framePool[idx];
+                if (withTransition) {
+                  wrap.style.opacity = 0;
+                  setTimeout(() => { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); }, 550);
+                } else {
+                  wrap.parentNode.removeChild(wrap);
+                }
+              }
+            }
+            visible.forEach((idx, i) => {
+              const offset = i - half;
+              const slot = slots[String(offset)];
+              let wrap = framePool[idx];
+              if (!wrap) {
+                wrap = createFrame(idx);
+                positionFrame(wrap, [slot[0], slot[1], 0, slot[3], slot[4], slot[5], slot[6]], false);
+              }
+              positionFrame(wrap, slot, withTransition);
+            });
+            updateMeta();
+          }
+
+          function updateMeta() {
+            const p = photos[active];
+            document.getElementById('metaTitle').textContent = p.title;
+            document.getElementById('metaExif').textContent = p.exif;
+            document.getElementById('filmCounter').textContent = String(active + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+            document.getElementById('progressFill').style.width = ((active + 1) / total * 100).toFixed(0) + '%';
+            document.getElementById('rollLabel').textContent = String(total * 4 + 36).padStart(3, '0');
+          }
+
+          function navigate(dir) {
+            if (animating) return;
+            animating = true;
+            active = ((active + dir) % total + total) % total;
+            render(true);
+            setTimeout(() => { animating = false; }, 550);
+          }
+
+          document.getElementById('btnNext').addEventListener('click', () => navigate(1));
+          document.getElementById('btnPrev').addEventListener('click', () => navigate(-1));
+          document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight') navigate(1);
+            if (e.key === 'ArrowLeft') navigate(-1);
+          });
+
+          render(false);
+        })();
+        </script>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span>NEUROTECH@VT · Virginia Tech · Blacksburg, VA 24061</span>
+            <span class="meta">// not affiliated with Neuralink, Synchron, or any commercial BCI entity</span>
+            <span>CC-BY 4.0 · research outputs</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
