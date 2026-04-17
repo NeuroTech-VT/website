@@ -2,7 +2,7 @@
 
 This repository contains the source code for the official [NeuroTech@VT](https://neurotechatvt.org/) website. 
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```text
 .
@@ -30,7 +30,7 @@ This repository contains the source code for the official [NeuroTech@VT](https:/
 └── [images/assets]         # Various images (e.g., group_photo.jpg)
 ```
 
-## 🛠️ Development
+## Notes
 
 - **Styling:** The site uses a modular CSS approach where each major page has its own CSS file alongside a global `styles.css`.
 - **Assets:** Use `crop_svg.py` for any transformations required for SVG assets.
