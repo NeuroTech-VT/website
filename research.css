@@ -96,13 +96,6 @@
   font-size: 11px; color: var(--fg2); line-height: 1.65;
 }
 
-.project-row-meta {
-  margin-top: 10px; font-size: 10px; color: var(--fg3);
-  display: flex; gap: 18px; flex-wrap: wrap;
-  padding-top: 8px; border-top: 1px solid var(--border);
-}
-.project-row-meta .val { color: var(--accent2); }
-
 .project-row-arrow {
   display: flex; align-items: center; justify-content: center;
   font-size: 13px; color: var(--fg3);
