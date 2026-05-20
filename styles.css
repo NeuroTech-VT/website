@@ -60,7 +60,7 @@
     height: 28px;
     background: var(--bg2);
     font-size: 11px;
-    color: var(--fg3);
+    color: var(--fg2);
     letter-spacing: 0.04em;
   }
   .topbar-left { display: flex; gap: 16px; align-items: center; }
