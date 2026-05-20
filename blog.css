@@ -1,4 +1,44 @@
   /* BLOG PAGE */
+/* FORCE FOOTER TO BOTTOM (HTML WORKAROUND) */
+html, body {
+  height: 100% !important;
+}
+
+.root {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+}
+
+/* 1. Convert the broken grid into a flex container to allow fluid pushing */
+.blog-grid {
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-content: flex-start;
+  border-bottom: none !important;
+}
+
+/* 2. Manually recreate the 3-column grid width for the cards */
+.blog-card {
+  width: 33.3333%;
+}
+
+/* 3. Push the trapped footer out of the card flow and to the bottom */
+.footer {
+  width: 100%;
+  margin-top: auto !important;
+}
+
+/* 4. Restore the responsive breakpoints */
+@media (max-width: 900px) {
+  .blog-card { width: 50%; }
+}
+
+@media (max-width: 600px) {
+  .blog-card { width: 100%; }
+}
+
   .blog-filter-bar {
     display: flex;
     align-items: center;
