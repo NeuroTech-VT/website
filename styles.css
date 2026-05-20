@@ -67,8 +67,6 @@
   .topbar-right { display: flex; gap: 12px; align-items: center; }
   .topbar a { color: var(--fg3); text-decoration: none; }
   .topbar a:hover { color: var(--fg); }
-  .status-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); display: inline-block; margin-right: 4px; }
-
   /* NAV */
   .nav {
     display: flex;
