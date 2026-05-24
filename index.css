@@ -10,28 +10,58 @@ object-position: right center;
 clip-path: inset(7.95% 0.00% 38.09% 0.00%);
 } */
 
-#halftone-hero {
-  /* 1. Pull the image out of flow to act as a background */
+/* #halftone-hero {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
-  
-  /* 2. Fix the baseline gap (just in case) */
   display: block; 
-  
-  /* 3. Ensure the image seamlessly fills the hero container */
   object-fit: cover;
   object-position: right center;
 }
-
-/* Ensure your text/content sits on top of the image */
 .hero-main,
 .hero-gradient {
   position: relative;
   z-index: 1;
+} */
+
+/* 1. Turn the hero into a side-by-side layout */
+.hero {
+    display: flex;
+    align-items: center; /* Centers the text and image vertically */
+    justify-content: space-between; /* Pushes them apart */
+    padding: 3rem 5%; /* Adds breathing room around the edges */
+    border-bottom: 1px solid var(--border);
+    /* You may want to add a background-color here if you don't want it to be white/transparent */
+}
+
+/* 2. Size the image and push it to the right */
+#halftone-hero {
+    order: 2; /* Moves the image to the right side (ignoring HTML order) */
+    width: 45%; /* Controls how small the image is. Adjust as needed! */
+    max-width: 600px; /* Optional cap so it doesn't get too huge on big monitors */
+    height: auto;
+    display: block;
+    
+    /* Make sure all previous absolute positioning/z-index rules are removed from here */
+}
+
+/* 3. Give the text container the left side */
+.hero-main {
+    order: 1; /* Moves the text to the left side */
+    width: 50%; /* Gives the text half the space */
+    
+    /* CRITICAL: Remove the 'position: absolute' from the previous step! */
+    position: relative; 
+}
+
+/* 4. Handle the gradient (Optional) */
+.hero-gradient {
+    /* Since the text is no longer sitting on top of the image, 
+       you likely don't need the overlay gradient anymore. */
+    display: none; 
 }
 
 .side-block-title {
