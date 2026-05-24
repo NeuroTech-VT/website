@@ -6,6 +6,7 @@
   #halftone-hero {
     object-fit: cover;
     object-position: right center;
+    clip-path: inset(7.95% 0.00% 38.09% 0.00%);
   }
   .side-block-title {
     font-size: 9px; letter-spacing: 0.1em; color: var(--fg3); text-transform: uppercase;
