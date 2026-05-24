@@ -58,6 +58,28 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
     margin: 0 !important;
 }
 
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column !important;
+    }
+
+    /* Force the image to be first */
+    #halftone-hero {
+        order: 1 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        max-width: none;
+        padding-bottom: 32px !important;
+    }
+
+    /* Force the text to be second */
+    .hero-main {
+        order: 2 !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+}
+
 .side-block-title {
   font-size: 9px; letter-spacing: 0.1em; color: var(--fg3); text-transform: uppercase;
   margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px;
