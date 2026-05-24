@@ -117,14 +117,14 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
     margin-bottom: 16px;
     color: var(--fg);
 }
-/* .project-desc-subtitle {
+.project-desc-subtitle {
     font-family: var(--serif);
     font-size: 16px;
     font-weight: 400;
     margin-top: 20px;
     margin-bottom: 10px;
     color: var(--fg);
-} */
+}
 .project-desc-text {
     font-size: 13px;
     line-height: 1.7;
