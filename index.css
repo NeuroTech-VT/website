@@ -27,41 +27,35 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
   z-index: 1;
 } */
 
-/* 1. Turn the hero into a side-by-side layout */
+/* 1. Force the Flex container to behave left-to-right */
 .hero {
-    display: flex;
-    align-items: center; /* Centers the text and image vertically */
-    justify-content: space-between; /* Pushes them apart */
-    padding: 3rem 5%; /* Adds breathing room around the edges */
-    border-bottom: 1px solid var(--border);
-    /* You may want to add a background-color here if you don't want it to be white/transparent */
+    display: flex !important;
+    flex-direction: row !important; /* Forces standard Left-to-Right order */
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative;
+    overflow: hidden;
 }
 
-/* 2. Size the image and push it to the right */
-#halftone-hero {
-    order: 2; /* Moves the image to the right side (ignoring HTML order) */
-    width: 45%; /* Controls how small the image is. Adjust as needed! */
-    max-width: 600px; /* Optional cap so it doesn't get too huge on big monitors */
-    height: auto;
-    display: block;
-    
-    /* Make sure all previous absolute positioning/z-index rules are removed from here */
-}
-
-/* 3. Give the text container the left side */
+/* 2. Force the text to stay in flow (Left side) */
 .hero-main {
-    order: 1; /* Moves the text to the left side */
-    width: 50%; /* Gives the text half the space */
-    
-    /* CRITICAL: Remove the 'position: absolute' from the previous step! */
-    position: relative; 
+    width: 50% !important;
+    position: static !important; /* Kills any leftover absolute positioning */
+    float: none !important;      /* Kills any leftover floats */
+    transform: none !important;
+    z-index: 2;
 }
 
-/* 4. Handle the gradient (Optional) */
-.hero-gradient {
-    /* Since the text is no longer sitting on top of the image, 
-       you likely don't need the overlay gradient anymore. */
-    display: none; 
+/* 3. Force the image to stay in flow (Right side) */
+#halftone-hero {
+    width: 45% !important;
+    max-width: 600px;
+    height: auto !important;
+    position: static !important; /* Kills any leftover absolute positioning */
+    float: none !important;      /* Kills any leftover floats */
+    transform: none !important;
+    display: block !important;
+    margin: 0 !important;
 }
 
 .side-block-title {
