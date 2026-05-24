@@ -3,6 +3,10 @@
     padding: 16px;
     display: flex; flex-direction: column; gap: 10px;
   }
+  #halftone-hero {
+    object-fit: cover;
+    object-position: right center;
+  }
   .side-block-title {
     font-size: 9px; letter-spacing: 0.1em; color: var(--fg3); text-transform: uppercase;
     margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px;
