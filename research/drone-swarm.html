@@ -51,14 +51,14 @@
             <div class="hero-gradient"></div>
             <div class="hero-main">
                 <div>
-                    <div class="hero-tag">// swarm intelligence · autonomous systems · active</div>
+                    <div class="hero-tag">// cara mia addio</div>
                     <div class="hero-title">
                         Drone Swarm<br>
-                        <em>via Decentralized Control.</em>
+                        <em>via Motor Imagery</em>
                     </div>
                     <div class="hero-desc">
-                        A multi-agent autonomous drone platform exploring swarm intelligence and distributed coordination algorithms.<span class="hero-break"></span>
-                        Targeting intent-based swarm direction through BCI integration.
+                        Lorem Ipsum <span class="hero-break"></span>
+                        Lorem Ipsum Lorem Ipsum Lorem Ipsum
                     </div>
                 </div>
             </div>
@@ -70,32 +70,14 @@
             <div class="project-section">
                 <div class="project-section-label">// overview</div>
                 <p>
-                    This project builds a platform for researching swarm intelligence using a small fleet of autonomous quadrotors.
-                    The core question: how do you coordinate multiple agents efficiently without a central controller — and can that coordination eventually be driven by decoded human intent?
+                    me want connect brain to drone swarm, me want to fly and feel the air 
                 </p>
                 <p>
-                    The current system runs 5 Crazyflie 2.1 drones communicating over a peer-to-peer UDP mesh.
-                    Each drone runs an onboard consensus algorithm that negotiates formation positions and obstacle-avoidance priorities locally, without routing commands through a ground station.
+                    https://www.youtube.com/watch?v=u3UiwJE8UH0
                 </p>
             </div>
 
-            <div class="project-section">
-                <div class="project-section-label">// control architecture</div>
-                <p>
-                    The swarm operates in three layered control modes. At the lowest level, each drone runs a PID attitude controller and a local collision-avoidance reactive layer.
-                    Above that, a distributed consensus protocol — based on a modified Raft variant — lets drones agree on a shared formation target within ~45 ms.
-                </p>
-                <p>
-                    The high-level planner is where we're iterating most actively.
-                    We've implemented and compared two approaches: a hand-coded rule-based planner for benchmarking, and a centralized-training / decentralized-execution reinforcement learning policy trained in simulation using Isaac Gym.
-                    The RL policy transfers to real hardware with a ~15% performance drop, which we're closing through domain randomization.
-                </p>
-                <p>
-                    The third planned control mode is BCI-driven: decoded motor imagery or imagined spatial directions from the EEG wheelchair project would be mapped to swarm formation commands, allowing a user to direct the group with thought alone.
-                </p>
-            </div>
-
-            <div class="project-section">
+            <!-- <div class="project-section">
                 <div class="project-section-label">// hardware</div>
                 <p>
                     Each drone is a Bitcraze Crazyflie 2.1 with a Flow Deck v2 (optical flow + ToF ranging for indoor positioning) and a Multi-ranger Deck for 360° obstacle detection.
@@ -131,19 +113,7 @@
                         <div class="timeline-body"><span class="timeline-todo">○</span> <strong>Scale to 10 drones.</strong> Expand swarm, stress-test consensus protocol, user study with BCI control.</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="project-section">
-                <div class="project-section-label">// related &amp; next steps</div>
-                <p>
-                    The BCI integration arm of this project depends directly on the
-                    <a href="eeg-wheelchair.html" class="link">EEG-Controlled Wheelchair</a> decoder pipeline —
-                    decoded motor imagery commands will be remapped from wheelchair navigation vectors to swarm formation targets.
-                </p>
-                <p>
-                    Near-term priorities are closing the sim-to-real gap further via domain randomization, expanding to 10 drones, and designing the first closed-loop BCI swarm control user study.
-                </p>
-            </div>
+            </div> -->
 
         </div>
 
