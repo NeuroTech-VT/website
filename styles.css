@@ -62,6 +62,7 @@
     font-size: 11px;
     color: var(--fg2);
     letter-spacing: 0.04em;
+    overflow: hidden;
   }
   .topbar-left { display: flex; gap: 16px; align-items: center; }
   .topbar-right { display: flex; gap: 12px; align-items: center; }
@@ -208,12 +209,14 @@
    * All touch targets should be ≥44px on mobile (Apple HIG).
    */
   @media (max-width: 900px) {
-    .nav-links { overflow-x: auto; }
+    .nav { height: auto; flex-wrap: wrap; }
+    .nav-links { overflow: visible; flex-wrap: wrap; }
     .nav-right { display: none; }
     .footer { flex-direction: column; text-align: center; }
   }
   @media (max-width: 600px) {
     .topbar-left span:not(:first-child) { display: none; }
+    .topbar-right a:not(:last-of-type) { display: none; }
     .hero-main { padding: 16px 14px; }
     .hero-title { font-size: 22px; }
     .hero-desc { max-width: 100%; }

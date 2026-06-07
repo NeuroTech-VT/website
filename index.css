@@ -76,12 +76,13 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
     .hero-main {
         order: 2 !important;
         width: 100% !important;
-        padding: 0 !important;
+        padding: 24px 20px !important;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .project-desc { padding: 24px 14px; }
+    .project-desc { padding: 24px 20px; }
+    .hero-main { padding: 20px 20px !important; }
     .project-desc-title { font-size: 18px; }
     .project-desc-text { font-size: 12px; }
     .side-block-title { font-size: 8px; }
@@ -91,7 +92,8 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
 }
 
 @media screen and (max-width: 400px) {
-    .project-desc { padding: 16px 10px; }
+    .project-desc { padding: 16px 16px; }
+    .hero-main { padding: 16px 16px !important; }
     .project-desc-title { font-size: 16px; }
     .project-desc-subtitle { font-size: 14px; }
     .project-desc-text { font-size: 11px; }
