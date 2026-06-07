@@ -95,7 +95,7 @@ The site has **9 HTML pages** across root + `research/` subdirectory. There are 
 | 14 | `project.css` | Adjust `.project-section` padding at 600px from `16px 14px` to `12px 12px` for narrower screens |
 | 15 | `project.css` | Adjust `.subpage-header` padding at 600px |
 
-### Phase 4: Global Consistency
+### Phase 4: Global Consistency 
 
 | # | File | Change |
 |---|------|--------|
