@@ -79,3 +79,7 @@
     .sponsors-about-text { border-bottom: 1px solid var(--border); }
     .sponsors-about-photo { width: 100%; min-height: 220px; }
   }
+  @media (max-width: 600px) {
+    .sponsors-cta-title { font-size: 28px; }
+    .sponsors-about-photo { min-height: 160px; }
+  }

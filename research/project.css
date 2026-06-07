@@ -219,7 +219,8 @@
   .metrics-row { grid-template-columns: 1fr 1fr; }
   .metric-cell { border-right: 1px solid var(--border); }
   .metric-cell:nth-child(2n) { border-right: none; }
-  .project-section { padding: 16px 14px; }
+  .project-section { padding: 12px 12px; }
+  .subpage-header { padding: 20px 16px 18px; }
   .timeline-item { grid-template-columns: 72px 1fr; }
   .align-control-bar {
     position: static;
