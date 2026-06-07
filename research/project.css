@@ -221,4 +221,13 @@
   .metric-cell:nth-child(2n) { border-right: none; }
   .project-section { padding: 16px 14px; }
   .timeline-item { grid-template-columns: 72px 1fr; }
+  .align-control-bar {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6px 14px;
+    border-bottom: 1px solid var(--border);
+    opacity: 1;
+  }
 }

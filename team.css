@@ -101,3 +101,12 @@
       padding: 16px;
     }
   }
+  @media (max-width: 600px) {
+    .member-row {
+      grid-template-columns: 48px 1fr;
+      gap: 10px;
+      padding: 10px 12px;
+    }
+    .member-row-detail { display: none; }
+    .member-row-desc { grid-column: 1 / -1; }
+  }

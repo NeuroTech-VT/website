@@ -73,15 +73,17 @@ The site has **9 HTML pages** across root + `research/` subdirectory. There are 
 | 4 | `blog.css` | Reduce `.blog-card-img` height to `80px` at 600px ✅ |
 | 5 | `team.css` | Add responsive for `.member-card-grid` — `grid-template-columns: repeat(auto-fill, minmax(160px, 1fr))` at 768px to prevent card overflow ✅ |
 
-### Phase 2: Grid & Layout Collapse
+### Phase 2: Grid & Layout Collapse ✅ DONE
 
 | # | File | Change |
 |---|------|--------|
-| 6 | `team.css` | Add `@media (max-width: 768px)` for `.member-card-grid`: `grid-template-columns: repeat(auto-fill, minmax(160px, 1fr))` and reduce gap from 40px to 16px |
-| 7 | `team.css` | Add `@media (max-width: 600px)` for `.member-row`: collapse from 4-column grid to stacked layout |
-| 8 | `project.css` | Add responsive for `.film-row` height: reduce to `280px` at 600px |
-| 9 | `project.css` | Add responsive for `.frame-inner` width/height: reduce to `200px x 220px` at 600px |
-| 10 | `project.css` | Fix `.align-control-bar` positioning on mobile (move inside content area or hide) |
+| 6 | `team.css` | Add `@media (max-width: 768px)` for `.member-card-grid`: `grid-template-columns: repeat(auto-fill, minmax(160px, 1fr))` and reduce gap from 40px to 16px ✅ |
+| 7 | `team.css` | Add `@media (max-width: 600px)` for `.member-row`: collapse from 4-column grid to stacked layout ✅ |
+| 8 | `project.css` → `team.html` | Add responsive for `.film-row` height: reduce to `280px` at 600px ✅ |
+| 9 | `project.css` → `team.html` | Add responsive for `.frame-inner` width/height: reduce to `200px x 220px` at 600px ✅ |
+| 10 | `project.css` | Fix `.align-control-bar` positioning on mobile (move inside content area or hide) ✅ |
+
+**Note:** Items 8 & 9 are implemented in `team.html` inline `<style>` tags rather than in `project.css` as the plan anticipated. This is because the filmstrip gallery (`.film-row`, `.frame-inner`) exists only on the team page, not on any research project pages — so placing them in `project.css` wouldn't make sense. The plan's file assignment was slightly off, but the implementation is correct and functional. Also added related mobile polish: `.filmstrip-meta-bar` stacks vertically at ≤600px, `.filmstrip-meta-title` shrinks to 13px, `.filmstrip-bar` and `.filmstrip-meta-bar` padding reduced.
 
 ### Phase 3: Spacing & Padding
 
