@@ -85,15 +85,15 @@ The site has **9 HTML pages** across root + `research/` subdirectory. There are 
 
 **Note:** Items 8 & 9 are implemented in `team.html` inline `<style>` tags rather than in `project.css` as the plan anticipated. This is because the filmstrip gallery (`.film-row`, `.frame-inner`) exists only on the team page, not on any research project pages — so placing them in `project.css` wouldn't make sense. The plan's file assignment was slightly off, but the implementation is correct and functional. Also added related mobile polish: `.filmstrip-meta-bar` stacks vertically at ≤600px, `.filmstrip-meta-title` shrinks to 13px, `.filmstrip-bar` and `.filmstrip-meta-bar` padding reduced.
 
-### Phase 3: Spacing & Padding
+### Phase 3: Spacing & Padding ✅ DONE
 
 | # | File | Change |
 |---|------|--------|
-| 11 | `styles.css` | Adjust `.hero-main` padding on mobile: `16px 14px` instead of `24px 20px 20px` |
-| 12 | `sponsors.css` | Add mobile font-size for `.sponsors-cta-title`: `28px` at 600px |
-| 13 | `sponsors.css` | Reduce `.sponsors-about-photo` min-height at 600px: `160px` |
-| 14 | `project.css` | Adjust `.project-section` padding at 600px from `16px 14px` to `12px 12px` for narrower screens |
-| 15 | `project.css` | Adjust `.subpage-header` padding at 600px |
+| 11 | `styles.css` | Adjust `.hero-main` padding on mobile: `16px 14px` instead of `24px 20px 20px` ✅ |
+| 12 | `sponsors.css` | Add mobile font-size for `.sponsors-cta-title`: `28px` at 600px ✅ |
+| 13 | `sponsors.css` | Reduce `.sponsors-about-photo` min-height at 600px: `160px` ✅ |
+| 14 | `project.css` | Adjust `.project-section` padding at 600px from `16px 14px` to `12px 12px` for narrower screens ✅ |
+| 15 | `project.css` | Adjust `.subpage-header` padding at 600px ✅ |
 
 ### Phase 4: Global Consistency 
 
