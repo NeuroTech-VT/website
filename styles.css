@@ -205,4 +205,15 @@
     .topbar-left span:not(:first-child) { display: none; }
     .hero-title { font-size: 22px; }
     .hero-actions { flex-direction: column; align-items: flex-start; }
+    .nav-links a {
+      padding: 0 10px;
+      min-height: 44px;
+    }
+    .toggle-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 400px) {
+    .hero-title { font-size: 20px; }
   }

@@ -63,15 +63,15 @@ The site has **9 HTML pages** across root + `research/` subdirectory. There are 
 
 ## Recommended Plan
 
-### Phase 1: Touch Targets & Typography (Critical)
+### Phase 1: Touch Targets & Typography (Critical) ✅ DONE
 
 | # | File | Change |
 |---|------|--------|
-| 1 | `styles.css` | Add `@media (max-width: 600px)` rule to increase nav link touch targets: `padding: 0 10px; min-height: 44px` or similar |
-| 2 | `styles.css` | Add mobile rules for `.toggle-btn` to have `padding: 6px 12px; font-size: 12px` for better tappability |
-| 3 | `styles.css` | Reduce `.hero-title` font size further at 400px: `font-size: 20px` |
-| 4 | `blog.css` | Reduce `.blog-card-img` height to `80px` at 600px |
-| 5 | `team.css` | Add responsive for `.member-card2` — ensure cards don't overflow |
+| 1 | `styles.css` | Add `@media (max-width: 600px)` rule to increase nav link touch targets: `padding: 0 10px; min-height: 44px` or similar ✅ |
+| 2 | `styles.css` | Add mobile rules for `.toggle-btn` to have `padding: 6px 12px; font-size: 12px` for better tappability ✅ |
+| 3 | `styles.css` | Reduce `.hero-title` font size further at 400px: `font-size: 20px` ✅ |
+| 4 | `blog.css` | Reduce `.blog-card-img` height to `80px` at 600px ✅ |
+| 5 | `team.css` | Add responsive for `.member-card-grid` — `grid-template-columns: repeat(auto-fill, minmax(160px, 1fr))` at 768px to prevent card overflow ✅ |
 
 ### Phase 2: Grid & Layout Collapse
 

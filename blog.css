@@ -150,4 +150,5 @@ html, body {
     .blog-grid { grid-template-columns: 1fr; }
     .blog-card:nth-child(n) { border-right: none; }
     .blog-filter-bar { height: auto; padding: 8px 12px; flex-wrap: wrap; }
+    .blog-card-img { height: 80px; }
   }

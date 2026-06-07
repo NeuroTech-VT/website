@@ -92,3 +92,12 @@
     transition: color 0.2s, border-color 0.2s;
   }
   .member-card2-btn:hover { color: var(--fg); border-color: var(--fg3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .member-card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      padding: 16px;
+    }
+  }
