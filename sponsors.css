@@ -88,10 +88,10 @@
     .sponsors-about-photo { min-height: 160px; }
   }
   @media (max-width: 400px) {
-    .sponsors-about-text { padding: 16px 12px; }
+    .sponsors-about-text { padding: 16px 16px; }
     .sponsors-about-title { font-size: 18px; }
     .sponsors-about-desc { font-size: 11px; }
-    .sponsors-cta { padding: 28px 14px; }
+    .sponsors-cta { padding: 28px 16px; }
     .sponsors-cta-title { font-size: 22px; }
     .sponsors-cta-desc { font-size: 11px; }
     .btn-cta-primary,

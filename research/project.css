@@ -224,15 +224,15 @@
   .metrics-row { grid-template-columns: 1fr 1fr; }
   .metric-cell { border-right: 1px solid var(--border); }
   .metric-cell:nth-child(2n) { border-right: none; }
-  .project-section { padding: 12px 12px; }
-  .subpage-header { padding: 20px 16px 18px; }
+  .project-section { padding: 12px 20px; }
+  .subpage-header { padding: 20px 20px 18px; }
   .timeline-item { grid-template-columns: 72px 1fr; }
   .align-control-bar {
     position: static;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    padding: 6px 14px;
+    padding: 6px 20px;
     border-bottom: 1px solid var(--border);
     opacity: 1;
   }
@@ -242,8 +242,8 @@
   .metric-cell { border-right: none; border-bottom: 1px solid var(--border); }
   .metric-cell:last-child { border-bottom: none; }
   .metric-cell:nth-child(4) { border-top: none; }
-  .project-section { padding: 8px 8px; }
-  .subpage-header { padding: 14px 10px 14px; }
+  .project-section { padding: 8px 16px; }
+  .subpage-header { padding: 14px 16px 14px; }
   .subpage-header-title { font-size: 18px; }
   .subpage-header-desc { font-size: 11px; }
   .breadcrumb { padding: 4px 10px; font-size: 9px; }

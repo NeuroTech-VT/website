@@ -105,12 +105,12 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .research-filter-bar { flex-wrap: wrap; height: auto; padding: 6px 12px; }
+  .research-filter-bar { flex-wrap: wrap; height: auto; padding: 6px 20px; }
 }
 @media (max-width: 600px) {
   .project-row { grid-template-columns: 40px 1fr 28px; }
   .project-row-index { font-size: 15px; padding: 14px 8px; }
-  .research-filter-bar { padding: 8px 12px; }
+  .research-filter-bar { padding: 8px 20px; }
   .project-row-desc { font-size: 10px; }
 }
 @media (max-width: 400px) {
@@ -119,6 +119,6 @@
   .project-row-body { padding: 10px 8px; }
   .project-row-title { font-size: 14px; }
   .project-row-desc { font-size: 9px; }
-  .research-filter-bar { padding: 6px 8px; gap: 4px; }
+  .research-filter-bar { padding: 6px 16px; gap: 4px; }
   .research-filter-btn { font-size: 8px; padding: 2px 5px; }
 }
