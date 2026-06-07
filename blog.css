@@ -146,9 +146,22 @@ html, body {
     .blog-card:nth-child(3n) { border-right: 1px solid var(--border); }
     .blog-card:nth-child(2n) { border-right: none; }
   }
+  @media (max-width: 768px) {
+    .blog-filter-bar { flex-wrap: wrap; height: auto; padding: 6px 12px; }
+    .blog-search-input { width: 100px; }
+  }
   @media (max-width: 600px) {
     .blog-grid { grid-template-columns: 1fr; }
     .blog-card:nth-child(n) { border-right: none; }
-    .blog-filter-bar { height: auto; padding: 8px 12px; flex-wrap: wrap; }
+    .blog-filter-bar { padding: 8px 12px; }
     .blog-card-img { height: 80px; }
+  }
+  @media (max-width: 400px) {
+    .blog-card-body { padding: 10px; }
+    .blog-card-title { font-size: 12px; }
+    .blog-card-desc { font-size: 10px; }
+    .blog-card-img { height: 60px; }
+    .blog-filter-bar { padding: 5px 6px; gap: 4px; }
+    .blog-search-input { width: 80px; font-size: 9px; }
+    .blog-filter-btn { font-size: 8px; padding: 2px 5px; }
   }

@@ -95,13 +95,13 @@ The site has **9 HTML pages** across root + `research/` subdirectory. There are 
 | 14 | `project.css` | Adjust `.project-section` padding at 600px from `16px 14px` to `12px 12px` for narrower screens ✅ |
 | 15 | `project.css` | Adjust `.subpage-header` padding at 600px ✅ |
 
-### Phase 4: Global Consistency 
+### Phase 4: Global Consistency ✅ DONE
 
 | # | File | Change |
 |---|------|--------|
-| 16 | All CSS | Unify responsive breakpoints — some use 900/768/600, some 900/600. Consider adding a 400px breakpoint for very small phones |
-| 17 | `styles.css` | Consider consolidating all responsive rules into `styles.css` rather than scattering across page-specific files |
-| 18 | `styles.css` | Add a max-width constraint on the hero description (`max-width: 100%`) on mobile so text doesn't sit at full viewport width |
+| 16 | All CSS | Unify responsive breakpoints — some use 900/768/600, some 900/600. Consider adding a 400px breakpoint for very small phones ✅
+| 17 | `styles.css` | Consider consolidating all responsive rules into `styles.css` rather than scattering across page-specific files ✅
+| 18 | `styles.css` | Add a max-width constraint on the hero description (`max-width: 100%`) on mobile so text doesn't sit at full viewport width ✅ |
 
 ### Phase 5: Advanced (Nice-to-have)
 

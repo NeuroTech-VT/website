@@ -195,7 +195,18 @@
     gap: 8px;
   }
 
-  /* RESPONSIVE */
+  /* RESPONSIVE BREAKPOINT SYSTEM
+   * 
+   * Convention (applied across all CSS files):
+   *   900px  — Small desktop / tablet landscape
+   *   768px  — Tablet portrait
+   *   600px  — Large phone
+   *   400px  — Small phone
+   *
+   * Page-specific responsive rules live in their respective CSS files.
+   * Global rules (topbar, nav, hero, toggle, footer) live here.
+   * All touch targets should be ≥44px on mobile (Apple HIG).
+   */
   @media (max-width: 900px) {
     .nav-links { overflow-x: auto; }
     .nav-right { display: none; }
@@ -205,6 +216,7 @@
     .topbar-left span:not(:first-child) { display: none; }
     .hero-main { padding: 16px 14px; }
     .hero-title { font-size: 22px; }
+    .hero-desc { max-width: 100%; }
     .hero-actions { flex-direction: column; align-items: flex-start; }
     .nav-links a {
       padding: 0 10px;

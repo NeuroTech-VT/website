@@ -110,3 +110,21 @@
     .member-row-detail { display: none; }
     .member-row-desc { grid-column: 1 / -1; }
   }
+  @media (max-width: 400px) {
+    .member-card-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 12px;
+    }
+    .member-card2 { padding: 14px 12px; }
+    .member-card2-name { font-size: 11px; }
+    .member-card2-desc { font-size: 9px; }
+    .member-grid { grid-template-columns: 1fr; }
+    .member-row {
+      grid-template-columns: 40px 1fr;
+      gap: 8px;
+      padding: 8px 10px;
+    }
+    .member-name { font-size: 11px; }
+    .member-desc { font-size: 10px; }
+  }

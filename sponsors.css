@@ -79,7 +79,21 @@
     .sponsors-about-text { border-bottom: 1px solid var(--border); }
     .sponsors-about-photo { width: 100%; min-height: 220px; }
   }
+  @media (max-width: 768px) {
+    .sponsors-about-text { padding: 24px 20px; }
+    .sponsors-cta { padding: 40px 20px; }
+  }
   @media (max-width: 600px) {
     .sponsors-cta-title { font-size: 28px; }
     .sponsors-about-photo { min-height: 160px; }
+  }
+  @media (max-width: 400px) {
+    .sponsors-about-text { padding: 16px 12px; }
+    .sponsors-about-title { font-size: 18px; }
+    .sponsors-about-desc { font-size: 11px; }
+    .sponsors-cta { padding: 28px 14px; }
+    .sponsors-cta-title { font-size: 22px; }
+    .sponsors-cta-desc { font-size: 11px; }
+    .btn-cta-primary,
+    .btn-cta-secondary { font-size: 10px; padding: 8px 20px; }
   }
