@@ -62,6 +62,7 @@
     font-size: 11px;
     color: var(--fg2);
     letter-spacing: 0.04em;
+    overflow: hidden;
   }
   .topbar-left { display: flex; gap: 16px; align-items: center; }
   .topbar-right { display: flex; gap: 12px; align-items: center; }
@@ -195,14 +196,41 @@
     gap: 8px;
   }
 
-  /* RESPONSIVE */
+  /* RESPONSIVE BREAKPOINT SYSTEM
+   * 
+   * Convention (applied across all CSS files):
+   *   900px  — Small desktop / tablet landscape
+   *   768px  — Tablet portrait
+   *   600px  — Large phone
+   *   400px  — Small phone
+   *
+   * Page-specific responsive rules live in their respective CSS files.
+   * Global rules (topbar, nav, hero, toggle, footer) live here.
+   * All touch targets should be ≥44px on mobile (Apple HIG).
+   */
   @media (max-width: 900px) {
-    .nav-links { overflow-x: auto; }
+    .nav { height: auto; flex-wrap: wrap; }
+    .nav-links { overflow: visible; flex-wrap: wrap; }
     .nav-right { display: none; }
     .footer { flex-direction: column; text-align: center; }
   }
   @media (max-width: 600px) {
     .topbar-left span:not(:first-child) { display: none; }
+    .topbar-right a:not(:last-of-type) { display: none; }
+    .hero-main { padding: 20px 20px; }
     .hero-title { font-size: 22px; }
+    .hero-desc { max-width: 100%; }
     .hero-actions { flex-direction: column; align-items: flex-start; }
+    .nav-links a {
+      padding: 0 10px;
+      min-height: 44px;
+    }
+    .toggle-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 400px) {
+    .hero-main { padding: 16px 16px; }
+    .hero-title { font-size: 20px; }
   }
