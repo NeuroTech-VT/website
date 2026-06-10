@@ -1,6 +1,6 @@
 # NeuroTech@VT Website Repository
 
-This repository contains the source code for the official [NeuroTech@VT](https://neurotechatvt.org/) website.
+This repository contains the source code for the [NeuroTech@VT](https://neurotechatvt.org/) website.
 
 ## TODO
 
