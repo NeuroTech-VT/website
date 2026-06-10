@@ -67,3 +67,4 @@ Push changes to the main branch to trigger deployment via GitHub Pages. The site
 - **CSS**: Modular CSS with CSS variables for theming (dark/light mode)
 - **JavaScript**: Client-side features including theme toggle, halftone animation, blog filtering, content alignment toggle, and text scramble effects
 - **Fonts**: IBM Plex Mono (primary) + IBM Plex Serif (headings) via Google Fonts
+
