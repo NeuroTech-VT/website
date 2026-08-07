@@ -139,30 +139,6 @@
 }
 .project-section .link:hover { color: var(--accent2); }
 
-/* PROJECT SUB-NAV TABS */
-.project-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg2);
-}
-.project-tab {
-  padding: 8px 18px;
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--fg3); text-decoration: none;
-  border-right: 1px solid var(--border);
-  transition: color 0.15s, background 0.15s;
-  position: relative;
-}
-.project-tab:hover { color: var(--fg); background: var(--bg3); }
-.project-tab.active {
-  color: var(--fg); background: var(--bg3);
-}
-.project-tab.active::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-  background: var(--accent2);
-}
-
 /* SUBPAGE HEADER */
 .subpage-header {
   padding: 28px 24px 22px;
@@ -216,8 +192,6 @@
   .metric-cell:nth-child(4) { border-top: 1px solid var(--border); }
 }
 @media (max-width: 768px) {
-  .project-tabs { flex-wrap: wrap; }
-  .project-tab { padding: 6px 12px; font-size: 9px; }
   .subpage-header-title { font-size: 22px; }
 }
 @media (max-width: 600px) {
@@ -247,7 +221,6 @@
   .subpage-header-title { font-size: 18px; }
   .subpage-header-desc { font-size: 11px; }
   .breadcrumb { padding: 4px 10px; font-size: 9px; }
-  .project-tab { padding: 5px 8px; font-size: 8px; }
   .timeline-item { grid-template-columns: 60px 1fr; gap: 6px; }
   .stack-grid { grid-template-columns: 1fr; }
   .bom-table { font-size: 10px; }
