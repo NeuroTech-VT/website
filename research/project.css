@@ -91,9 +91,10 @@
 .project-section:last-child { padding-bottom: 22px; }
 
 .project-section-label {
-  font-size: 9px; letter-spacing: 0.12em; color: var(--accent2);
-  text-transform: uppercase; margin-bottom: 14px;
-  padding-bottom: 6px; border-bottom: 1px solid var(--border);
+  font-style: italic; font-weight: 300;
+  font-size: 16px; letter-spacing: 0.08em; color: var(--accent2);
+  margin-bottom: 14px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
 }
 
 .project-section p {
