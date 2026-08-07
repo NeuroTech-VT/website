@@ -58,21 +58,6 @@
             </div>
         </div>
 
-        <!-- FILTER BAR -->
-        <div class="research-filter-bar">
-            <div class="research-filter-left">
-                <span class="research-filter-label">// filter by</span>
-                <button class="research-filter-btn active" onclick="filterProjects(this, 'all')">ALL</button>
-                <button class="research-filter-btn" onclick="filterProjects(this, 'active')">ACTIVE</button>
-                <button class="research-filter-btn" onclick="filterProjects(this, 'planned')">PLANNED</button>
-                <button class="research-filter-btn" onclick="filterProjects(this, 'hardware')">HARDWARE</button>
-                <button class="research-filter-btn" onclick="filterProjects(this, 'software')">SOFTWARE</button>
-            </div>
-            <div class="research-filter-right">
-                <span class="meta" id="project-count">2 projects</span>
-            </div>
-        </div>
-
         <!-- PROJECT LIST -->
         <div class="research-section-header">
             <span>projects · AY 2025–26</span>
@@ -82,7 +67,7 @@
         <div class="project-list" id="project-list">
 
             <!-- PROJECT 01 -->
-            <a class="project-row" href="research/eeg-wheelchair.html" data-tags="active hardware software">
+            <a class="project-row" href="research/eeg-wheelchair.html">
                 <div class="project-row-index">01</div>
                 <div class="project-row-body">
                     <div class="project-row-tag">
@@ -98,7 +83,7 @@
             </a>
 
             <!-- PROJECT 02 -->
-            <a class="project-row" href="research/drone-swarm.html" data-tags="planned hardware software">
+            <a class="project-row" href="research/drone-swarm.html">
                 <div class="project-row-index">02</div>
                 <div class="project-row-body">
                     <div class="project-row-tag">
@@ -122,20 +107,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        function filterProjects(btn, filter) {
-            document.querySelectorAll('.research-filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const rows = document.querySelectorAll('.project-row');
-            let visible = 0;
-            rows.forEach(row => {
-                const tags = row.dataset.tags || '';
-                const show = filter === 'all' || tags.includes(filter);
-                row.classList.toggle('hidden', !show);
-                if (show) visible++;
-            });
-            document.getElementById('project-count').textContent = visible + ' project' + (visible !== 1 ? 's' : '');
-        }
-    </script>
 </body>
 </html>

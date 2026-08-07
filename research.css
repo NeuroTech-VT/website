@@ -1,43 +1,5 @@
 /* RESEARCH PAGE */
 
-/* FILTER BAR */
-.research-filter-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  height: 34px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg2);
-  gap: 8px;
-}
-.research-filter-left {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.research-filter-label {
-  font-size: 9px; letter-spacing: 0.1em;
-  color: var(--fg3); text-transform: uppercase;
-  margin-right: 8px;
-}
-.research-filter-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 10px;
-  color: var(--fg3);
-}
-.research-filter-btn {
-  background: none; border: 1px solid transparent;
-  color: var(--fg3); font-family: var(--mono);
-  font-size: 9px; letter-spacing: 0.08em;
-  padding: 2px 8px; cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
-}
-.research-filter-btn:hover { color: var(--fg); border-color: var(--border2); }
-.research-filter-btn.active { color: var(--fg); border-color: var(--border2); background: var(--bg3); }
-
 /* PROJECT LIST */
 .research-section-header {
   padding: 8px 14px;
@@ -61,7 +23,6 @@
 }
 .project-row:last-child { border-bottom: none; }
 .project-row:hover { background: var(--bg2); }
-.project-row.hidden { display: none; }
 
 .project-row-index {
   display: flex; align-items: flex-start; justify-content: center;
@@ -104,13 +65,9 @@
 .project-row:hover .project-row-arrow { color: var(--accent2); }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .research-filter-bar { flex-wrap: wrap; height: auto; padding: 6px 20px; }
-}
 @media (max-width: 600px) {
   .project-row { grid-template-columns: 40px 1fr 28px; }
   .project-row-index { font-size: 15px; padding: 14px 8px; }
-  .research-filter-bar { padding: 8px 20px; }
   .project-row-desc { font-size: 10px; }
 }
 @media (max-width: 400px) {
@@ -119,6 +76,4 @@
   .project-row-body { padding: 10px 8px; }
   .project-row-title { font-size: 14px; }
   .project-row-desc { font-size: 9px; }
-  .research-filter-bar { padding: 6px 16px; gap: 4px; }
-  .research-filter-btn { font-size: 8px; padding: 2px 5px; }
 }
