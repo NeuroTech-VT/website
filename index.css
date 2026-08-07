@@ -31,10 +31,13 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
 .hero {
     display: flex !important;
     flex-direction: row !important; /* Forces standard Left-to-Right order */
-    align-items: center !important;
+    align-items: stretch !important; /* image fills hero height instead of floating centered */
     justify-content: space-between !important;
     position: relative;
     overflow: hidden;
+    /* fixed hero height on desktop: the photo crops smoothly as the
+       window narrows instead of the section changing size */
+    min-height: 380px;
 }
 
 /* 2. Force the text to stay in flow (Left side) */
@@ -51,6 +54,8 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
     width: 45% !important;
     max-width: 600px;
     height: auto !important;
+    object-fit: cover;      /* crop instead of shrink when the column is taller than the photo */
+    object-position: center;
     position: static !important; /* Kills any leftover absolute positioning */
     float: none !important;      /* Kills any leftover floats */
     transform: none !important;
@@ -69,20 +74,19 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
         width: 100% !important;
         padding: 0 !important;
         max-width: none;
-        padding-bottom: 32px !important;
     }
 
     /* Force the text to be second */
     .hero-main {
         order: 2 !important;
         width: 100% !important;
-        padding: 24px 20px !important;
+        padding: 12px 20px 24px !important;
     }
 }
 
 @media screen and (max-width: 600px) {
     .project-desc { padding: 24px 20px; }
-    .hero-main { padding: 20px 20px !important; }
+    .hero-main { padding: 10px 20px 20px !important; }
     .project-desc-title { font-size: 18px; }
     .project-desc-text { font-size: 12px; }
     .side-block-title { font-size: 8px; }
@@ -93,7 +97,7 @@ clip-path: inset(7.95% 0.00% 38.09% 0.00%);
 
 @media screen and (max-width: 400px) {
     .project-desc { padding: 16px 16px; }
-    .hero-main { padding: 16px 16px !important; }
+    .hero-main { padding: 8px 16px 16px !important; }
     .project-desc-title { font-size: 16px; }
     .project-desc-subtitle { font-size: 14px; }
     .project-desc-text { font-size: 11px; }

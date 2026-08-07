@@ -76,8 +76,9 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     .sponsors-about { flex-direction: column; }
-    .sponsors-about-text { border-bottom: 1px solid var(--border); }
     .sponsors-about-photo { width: 100%; min-height: 220px; }
+    /* photo sits below the text here, so fade from the top instead of the left */
+    .sponsors-photo-fade { background: linear-gradient(to bottom, var(--bg) 0%, transparent 55%); }
   }
   @media (max-width: 768px) {
     .sponsors-about-text { padding: 24px 20px; }
