@@ -5,6 +5,12 @@
     font-size: 9px; letter-spacing: 0.08em; color: var(--fg3);
     text-transform: uppercase;
   }
+  /* subgroup headings, matching .project-section-label on research subpages */
+  .member-group-label {
+    font-style: italic; font-weight: 300;
+    font-size: 16px; letter-spacing: 0.08em; color: var(--accent2);
+    margin: 16px 14px 6px;
+  }
   .member-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -54,6 +60,20 @@
     padding: 20px 24px;
     border-bottom: 1px solid var(--border);
     justify-content: center;
+  }
+  /* Electronics / Subsystem / Software side by side; each team's cards stack below its heading */
+  .team-groups-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+  .team-group .member-card-grid {
+    grid-template-columns: minmax(0, 200px);
+    border-bottom: none;
+    align-content: start;
+  }
+  @media (max-width: 900px) {
+    .team-groups-row { grid-template-columns: 1fr; }
   }
   .member-card2 {
     display: flex;
