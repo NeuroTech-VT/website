@@ -1,4 +1,4 @@
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Serif:wght@300;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Serif:wght@300;400&display=swap');
 
   :root {
     --bg: #0e0e0e;
@@ -14,7 +14,7 @@
     --green: #4a7a5a;
     --border: #2a2a2a;
     --border2: #333;
-    --mono: 'IBM Plex Mono', monospace;
+    --mono: 'Google Sans Code', monospace;
     --serif: 'IBM Plex Serif', serif;
   }
   .light {
@@ -38,6 +38,7 @@
   body {
     background: var(--bg);
     transition: background 0.2s;
+    zoom: 1.2;
   }
 
   .root {
