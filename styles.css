@@ -211,7 +211,21 @@
    */
   @media (max-width: 900px) {
     .nav { height: auto; flex-wrap: wrap; }
-    .nav-links { overflow: visible; flex-wrap: wrap; }
+    /* deliberate two-row nav: centered logo on top, links as an even row below */
+    .nav-logo {
+      width: 100%;
+      justify-content: center;
+      padding: 8px 20px;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links { overflow: visible; }
+    .nav-links a {
+      flex: 1;
+      justify-content: center;
+      min-height: 44px;
+    }
+    .nav-links a:last-child { border-right: none; }
     .nav-right { display: none; }
     .footer { flex-direction: column; text-align: center; }
   }
