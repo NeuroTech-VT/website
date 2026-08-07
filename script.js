@@ -84,36 +84,6 @@ initTheme();
  })();
 
 
-// ── BLOG FILTER ──
-let _blogActiveCategory = 'all';
-
-function _applyBlogFilters() {
-  const query = (document.querySelector('.blog-search-input') || {value: ''}).value.toLowerCase().trim();
-  const cards = document.querySelectorAll('.blog-card');
-  let visible = 0;
-  cards.forEach(card => {
-    const categoryMatch = _blogActiveCategory === 'all' || card.dataset.category === _blogActiveCategory;
-    const text = card.textContent.toLowerCase();
-    const searchMatch = !query || text.includes(query);
-    const show = categoryMatch && searchMatch;
-    card.classList.toggle('hidden', !show);
-    if (show) visible++;
-  });
-  const counter = document.getElementById('blog-post-count');
-  if (counter) counter.textContent = visible + (visible === 1 ? ' post' : ' posts');
-}
-
-function filterBlog(btn, category) {
-  document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  _blogActiveCategory = category;
-  _applyBlogFilters();
-}
-
-function searchBlog(value) {
-  _applyBlogFilters();
-}
-
 // ── CONTENT ALIGNMENT TOGGLE ──
 (function() {
   const col = document.querySelector('.project-col');
