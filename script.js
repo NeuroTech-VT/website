@@ -1,9 +1,19 @@
+function updateToggleLabel() {
+  const isLight = document.getElementById('root').classList.contains('light');
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.innerHTML = isLight
+      ? '<span class="toggle-icon">☾</span> DARK'
+      : '<span class="toggle-icon">☀</span> LIGHT';
+  });
+}
+
 function initTheme() {
   const saved = localStorage.getItem('theme');
   if (saved === 'light') {
     document.getElementById('root').classList.add('light');
     document.body.classList.add('light');
   }
+  updateToggleLabel();
 }
 
 function toggleTheme() {
@@ -17,6 +27,7 @@ function toggleTheme() {
     document.body.classList.add('light');
     localStorage.setItem('theme', 'light');
   }
+  updateToggleLabel();
 }
 
 initTheme();

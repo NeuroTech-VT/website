@@ -108,11 +108,13 @@
 
   /* TOGGLE */
   .toggle-btn {
-    background: none; border: 1px solid var(--border2);
-    color: var(--fg2); font-family: var(--mono); font-size: 10px;
-    padding: 2px 8px; cursor: pointer; letter-spacing: 0.04em;
+    background: var(--bg); border: 1px solid var(--border2);
+    color: var(--fg); font-family: var(--mono); font-size: 11px;
+    padding: 3px 10px; cursor: pointer; letter-spacing: 0.06em;
+    white-space: nowrap;
   }
-  .toggle-btn:hover { color: var(--fg); border-color: var(--fg3); }
+  .toggle-btn:hover { color: var(--accent2); border-color: var(--accent2); }
+  .toggle-icon { font-size: 15px; line-height: 1; vertical-align: -2px; }
 
   /* HERO */
   .hero {
