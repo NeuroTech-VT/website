@@ -47,8 +47,11 @@
     font-family: var(--mono);
     font-size: 13px;
     line-height: 1.6;
-    min-height: 100vh;
+    /* body zoom is 1.2, so 100vh would render 20% taller than the screen */
+    min-height: calc(100vh / 1.2);
     transition: background 0.2s, color 0.2s;
+    display: flex;
+    flex-direction: column;
   }
 
   /* TOP BAR */
@@ -195,6 +198,7 @@
 
   /* FOOTER */
   .footer {
+    margin-top: auto;
     display: flex; justify-content: space-between; align-items: center;
     padding: 8px 16px;
     font-size: 10px; color: var(--fg3);

@@ -58,14 +58,18 @@
     display: grid;
     grid-template-columns: repeat(3, 200px);
     gap: 40px;
-    padding: 20px 24px;
+    padding: 8px 14px 20px 32px;
     border-bottom: 1px solid var(--border);
-    justify-content: center;
+    /* left-aligned under the group label so cards and headings share an edge */
+    justify-content: start;
   }
   /* Electronics / Subsystem / Software side by side; each team's cards stack below its heading */
   .team-groups-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* columns hug their content and pack left instead of spreading full-width */
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    column-gap: 24px;
     border-bottom: 1px solid var(--border);
   }
   .team-group .member-card-grid {
@@ -74,7 +78,12 @@
     align-content: start;
   }
   @media (max-width: 900px) {
-    .team-groups-row { grid-template-columns: 1fr; }
+    /* two team groups per row on small screens, cards filling their column */
+    .team-groups-row { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; }
+    .team-group .member-card-grid {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 8px 14px 20px;
+    }
   }
   .member-card2 {
     display: flex;
@@ -126,6 +135,7 @@
     .member-row-desc { grid-column: 1 / -1; }
   }
   @media (max-width: 400px) {
+    .team-groups-row { grid-template-columns: 1fr; }
     .member-card-grid {
       grid-template-columns: 1fr;
       gap: 12px;
