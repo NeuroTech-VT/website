@@ -4,7 +4,10 @@
     gap: 0;
     border-bottom: 1px solid var(--border);
   }
-  .sponsors-about-text { flex: 1; padding: 32px 28px; }
+  .sponsors-about-text {
+    flex: 1; padding: 32px 28px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
   .sponsors-about-title {
     font-family: var(--serif);
     font-size: 22px; font-weight: 300;
