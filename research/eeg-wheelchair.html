@@ -55,8 +55,7 @@
                         <em>via Motor Imagery.</em>
                     </div>
                     <div class="hero-desc">
-                        We are building an add-on for electric wheelchairs that translates imagined motion (motor imagery) into movement.<span class="hero-break"></span>
-                        Built entirely by undergraduates on commodity hardware.
+                        An EEG-based add-on for electric wheelchairs that translates imagined motion (motor imagery) into movement.
                     </div>
                 </div>
             </div>
@@ -68,19 +67,19 @@
             <div class="project-section">
                 <div class="project-section-label">Overview</div>
                 <p>
-                    For people who cannot reliably use their hands — due to spinal cord injury, ALS, muscular dystrophy, or similar conditions — the joystick on an electric wheelchair can be the one barrier standing between them and independent mobility. Our answer is to read intent directly from the brain: when someone imagines moving their feet or a hand, the brain produces measurable electrical patterns even when the body can't follow through. A non-invasive EEG headset picks those patterns up, and our system turns them into driving commands.
+                    For people who cannot reliably use their hands — due to spinal cord injury, ALS, muscular dystrophy, or similar conditions — the joystick on an electric wheelchair can be the one barrier standing between them and independent mobility. When someone imagines moving their feet or a hand, the brain produces measurable electrical patterns even when the body can't follow through. A non-invasive EEG headset picks up those patterns, and the system translates them into driving commands.
                 </p>
                 <p>
-                    Just as important is <em>how</em> we deliver it. Instead of building a specialized wheelchair from scratch, we are building a small add-on that works with the chair a person already owns. That choice keeps the technology affordable and within reach — no new wheelchair purchase, no permanent modification, no surgery.
+                    Rather than building a specialized wheelchair from scratch, the add-on works with the chair a person already owns. This keeps the cost low and avoids the need for a new purchase, permanent modification, or surgery.
                 </p>
                 <p>
                     In practice, the user wears an EEG headset and simply imagines a movement: imagining foot movement drives the chair forward, imagining a hand movement rotates it, and relaxing brings it to rest. The sections below describe how the current prototype implements this.
                 </p>
                 <p>
-                    By developing an add-on that can sit on top of most electric wheelchair joysticks instead of working with direct wiring of a specific wheelchair model, we aim to make our solution more accessible and customizable.
+                    The add-on sits on top of most electric wheelchair joysticks rather than requiring direct wiring to a specific model, making it adaptable across chair types.
                 </p>
                 <p>
-                    The initial prototype uses three classes: feet (forward), right hand (rotate right), and rest. This is a deliberate choice to minimize system complexity and prioritize a functional, usable prototype over premature feature expansion. The final product will support will allow the user to either choose which hand should be used to rotate the wheelchair, or to use both hands to rotate on both sides: feet (forward), right hand (rotate right), left hand (rotate left), and rest.
+                    The initial prototype uses three classes: feet (forward), right hand (rotate right), and rest. This is a deliberate choice to minimize system complexity and prioritize a functional, usable prototype over premature feature expansion. The final product will allow the user to either choose which hand should be used to rotate the wheelchair, or to use both hands to rotate on both sides: feet (forward), right hand (rotate right), left hand (rotate left), and rest.
                 </p>
                 <p>
                     [add short description about the joystick cap]
@@ -90,7 +89,7 @@
             <div class="project-section">
                 <div class="project-section-label">Signal processing pipeline</div>
                 <p>
-                    This is the software that learns to recognize each user's imagined movements from their EEG signal. Our engineering philosophy here is deliberate: start with simple, well-understood methods, measure honestly against public benchmarks, and only add complexity when the data demands it.
+                    This is the software that learns to recognize each user's imagined movements from their EEG signal. It starts with simple, well-understood methods and benchmarks against MOABB (Mother of All BCI Benchmarks) for standardized comparison. Complexity is added only when the data demands it.
                 </p>
                 <p>
                     We begin with conventional classification models such as LDA and SVM with CSP features, as they are lightweight and predictable. If these hit a wall in accuracy, we will move to deep learning approaches like CNNs or transformers. 
@@ -110,12 +109,12 @@
             <div class="project-section">
                 <div class="project-section-label">Timeline</div>
                 <p>
-                    We already have a working proof of concept: a first end-to-end demonstration where imagined movement, decoded from EEG, physically actuated the joystick hardware. The milestones below track our progress from that first prototype toward a system someone can rely on daily.
+                    A working proof of concept exists: imagined movement, decoded from EEG, physically actuated the joystick hardware in an end-to-end demonstration. The milestones below track progress from that first prototype toward a system suitable for daily use.
                 </p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Fall 2026</div>
-                        <div class="timeline-body"><span class="timeline-check">✓</span> <strong>Initial Prototype</strong> Crude version of classification model (70% acc. on training dataset) was connected to the Arduino firmware, which managed to move servos connnected to the Arduino.</div>
+                        <div class="timeline-body"><span class="timeline-check">✓</span> <strong>Initial Prototype</strong> Crude version of classification model (70% acc. on training dataset) was connected to the Arduino firmware, which managed to move servos connected to the Arduino.</div>
                     </div>
                     <span class="timeline-active">→</span>
                     <span class="timeline-todo">○</span>
@@ -125,11 +124,11 @@
             <div class="project-section">
                 <div class="project-section-label">Related &amp; next steps</div>
                 <p>
-                    The long-term goal is a chair that feels natural to drive — not a lab demo, but something a person trusts in a hallway, a grocery store, a campus sidewalk. Getting there means moving from single, discrete commands toward smooth, continuous control.
+                    The long-term goal is a chair that feels natural to drive — reliable enough for daily use in hallways, grocery stores, and campus sidewalks. Getting there means moving from single, discrete commands toward smooth, continuous control.
                 </p>
                 <p>
                     Next steps:
-                    - Allow for continuous input alongside discrete commands (for example, one command to go forward by 8 feets instead of 4 commands of moving 2 feets forward)
+                    - Allow for continuous input alongside discrete commands (for example, one command to go forward by 8 feet instead of 4 commands of moving 2 feet forward)
                 </p>
             </div>
 
