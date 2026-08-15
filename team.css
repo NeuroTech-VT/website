@@ -111,9 +111,6 @@
   .member-card2-major {
     font-size: 10px; color: var(--fg3); letter-spacing: 0.06em;
   }
-  .member-card2-desc {
-    font-size: 10px; color: var(--fg2); line-height: 1.55; flex: 1;
-  }
   .member-card2-links {
     display: flex; gap: 6px; flex-wrap: wrap;
     justify-content: center; margin-top: 4px;
@@ -152,7 +149,6 @@
     }
     .member-card2 { padding: 14px 12px; }
     .member-card2-name { font-size: 11px; }
-    .member-card2-desc { font-size: 9px; }
     .member-grid { grid-template-columns: 1fr; }
     .member-row {
       grid-template-columns: 40px 1fr;
