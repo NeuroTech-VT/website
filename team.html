@@ -56,33 +56,6 @@
             </div>
         </div>
 
-                <!-- GALLERY -->
-        <div class="gallery-section">
-            <div class="member-section-header">
-                <span>Photos</span>
-            </div>
-            <h2 class="sr-only">Cinematic film strip photo gallery — click or use arrow keys to navigate between photos</h2>
-            <div class="filmstrip-stage" id="filmstripStage">
-                <div class="film-row" id="filmRow"></div>
-                <div class="filmstrip-meta-bar">
-                    <div class="filmstrip-meta-left">
-                        <div class="filmstrip-meta-title" id="metaTitle">—</div>
-                        <div class="filmstrip-meta-exif" id="metaExif">—</div>
-                    </div>
-                    <div class="filmstrip-meta-right">
-                        <span class="filmstrip-counter" id="filmCounter">01 / 06</span>
-                        <button class="filmstrip-nav-btn" id="btnPrev" aria-label="Previous">&#8592;</button>
-                        <button class="filmstrip-nav-btn" id="btnNext" aria-label="Next">&#8594;</button>
-                    </div>
-                </div>
-                <div class="filmstrip-bar">
-                    <span class="filmstrip-bar-label">KODAK PORTRA 400</span>
-                    <div class="filmstrip-progress-strip"><div class="filmstrip-progress-fill" id="progressFill"></div></div>
-                    <span class="filmstrip-bar-label" id="rollLabel">036</span>
-                </div>
-            </div>
-        </div>
-
         <!-- TEAM CONTENT -->
         <div class="team-col">
             <div class="member-section-header"><span>Members</span></div>
@@ -154,6 +127,31 @@
             </div>
         </div>
 
+        <!-- GALLERY -->
+        <div class="gallery-section">
+            <div class="member-section-header">
+                <span>Photos</span>
+            </div>
+            <h2 class="sr-only">Cinematic film strip photo gallery — click or use arrow keys to navigate between photos</h2>
+            <div class="filmstrip-stage" id="filmstripStage">
+                <div class="film-row" id="filmRow"></div>
+                <div class="filmstrip-meta-bar">
+                    <div class="filmstrip-meta-left">
+                        <div class="filmstrip-meta-title" id="metaTitle">—</div>
+                        <div class="filmstrip-meta-exif" id="metaExif">—</div>
+                    </div>
+                    <div class="filmstrip-meta-right">
+                        <span class="filmstrip-counter" id="filmCounter">01 / 06</span>
+                        <button class="filmstrip-nav-btn" id="btnPrev" aria-label="Previous">&#8592;</button>
+                        <button class="filmstrip-nav-btn" id="btnNext" aria-label="Next">&#8594;</button>
+                    </div>
+                </div>
+                <div class="filmstrip-bar">
+                    <div class="filmstrip-progress-strip"><div class="filmstrip-progress-fill" id="progressFill"></div></div>
+                </div>
+            </div>
+        </div>
+
         <style>
           .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
           .filmstrip-stage{border-radius:8px;overflow:hidden;padding:2rem 0 1.5rem;user-select:none}
@@ -169,8 +167,9 @@
           @media(max-width:600px){.sprockets{width:200px}}
           @media(max-width:400px){.sprockets{width:150px}}
           .sprocket{width:12px;height:10px;border-radius:2px;background:var(--bg);border:none}
-          .photo-fill{width:100%;height:100%;object-fit:cover;display:block;transition:opacity 0.4s}
-          .photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+          .photo-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:0;transition:opacity 0.4s}
+          .photo-fill.loaded{opacity:1}
+          .photo-placeholder{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
           .frame-code{font-family:'Courier New',monospace;font-size:9px;color:var(--fg3);margin-top:4px;letter-spacing:0.05em;transition:color 0.3s}
           @media(max-width:600px){.frame-code{font-size:8px}}
           .frame-wrap.active .frame-code{color:var(--fg2)}
@@ -192,7 +191,6 @@
           .filmstrip-bar{display:flex;align-items:center;padding:8px 1.5rem 0;gap:6px}
           @media(max-width:600px){.filmstrip-bar{padding:8px 1rem 0}}
           @media(max-width:400px){.filmstrip-bar{padding:6px 0.75rem 0}}
-          .filmstrip-bar-label{font-family:'Courier New',monospace;font-size:9px;color:var(--fg3);letter-spacing:0.1em;flex-shrink:0}
           .filmstrip-progress-strip{flex:1;height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
           .filmstrip-progress-fill{height:100%;background:var(--fg2);border-radius:2px;transition:width 0.4s cubic-bezier(0.4,0,0.2,1)}
           :root{--filmstrip-sprocket-bg:rgba(90,85,78,0.72)}
@@ -205,14 +203,24 @@
 
         <script>
         (function() {
+          const DIR = 'team-page-photowheel/web/';
           const photos = [
-            {title:"team",     exif:"group photo  fall 2025",         code:"001A",cls:"fp-1",accent:"#85B7EB"},
-            {title:"lab setup",              exif:"EEG rig  bench test",            code:"002A",cls:"fp-2",accent:"#5DCAA5"},
-            {title:"wheelchair prototype",   exif:"v1 chassis  integration test",   code:"003A",cls:"fp-3",accent:"#F0997B"},
-            {title:"EEG session",            exif:"motor imagery  subject 04",      code:"004A",cls:"fp-4",accent:"#AFA9EC"},
-            {title:"PCB v2",                 exif:"CAN bus board  rev B",           code:"005A",cls:"fp-5",accent:"#EF9F27"},
-            {title:"demo day",               exif:"spring showcase  April 2025",    code:"006A",cls:"fp-6",accent:"#97C459"},
+            {title:"the team",               exif:"group photo  April 2026",        cls:"fp-1",accent:"#85B7EB",
+             src:"01-team.jpg",              alt:"Five NeuroTech@VT members posing together in the lab classroom, one seated in the wheelchair prototype."},
+            {title:"EEG headset",            exif:"electrode cap  build check",     cls:"fp-2",accent:"#5DCAA5",
+             src:"02-eeg-headset.jpg",       alt:"A team member holding up the wired EEG electrode cap to inspect it."},
+            {title:"signal acquisition",     exif:"live EEG capture  UDP stream",   cls:"fp-3",accent:"#F0997B",
+             src:"03-signal-acquisition.jpg",alt:"Laptop running EEG acquisition software with live channel traces, in front of a Virginia Tech podium."},
+            {title:"electronics bench",      exif:"drive motors  wiring harness",   cls:"fp-4",accent:"#AFA9EC",
+             src:"04-electronics-bench.jpg", alt:"A team member giving a thumbs up at a bench covered in motors, wiring and battery packs."},
+            {title:"EEG session",            exif:"motor imagery  live readout",    cls:"fp-5",accent:"#EF9F27",
+             src:"05-eeg-session.jpg",       alt:"One member wearing the EEG cap while another points at the incoming signals on a laptop."},
+            {title:"wheelchair test",        exif:"drive module  integration test", cls:"fp-6",accent:"#97C459",
+             src:"06-wheelchair-test.jpg",   alt:"Two members fitting the drive module to the wheelchair prototype during an integration test."},
           ];
+
+          // Warm the cache so stepping through the wheel never shows a bare placeholder.
+          photos.forEach(p => { const im = new Image(); im.src = DIR + p.src; });
 
           const total = photos.length;
           const VISIBLE = 5;
@@ -250,9 +258,15 @@
               '<circle cx="14" cy="15" r="4.5" stroke="' + p.accent + '" stroke-width="1.2"/>' +
               '<path d="M9 7V6a2 2 0 012-2h6a2 2 0 012 2v1" stroke="' + p.accent + '" stroke-width="1.2"/>' +
               '<circle cx="21" cy="11" r="1" fill="' + p.accent + '"/>' +
-              '</svg></div></div>' +
+              '</svg></div>' +
+              '<img class="photo-fill" src="' + DIR + p.src + '" alt="' + p.alt + '" decoding="async">' +
+              '</div>' +
               '<div class="sprockets" data-role="bot"></div>' +
-              '<div class="frame-code">' + p.code + ' \u25aa ' + String(idx + 1).padStart(2, '0') + '</div>';
+              '<div class="frame-code">' + String(idx + 1).padStart(2, '0') + '</div>';
+            const img = wrap.querySelector('.photo-fill');
+            if (img.complete) img.classList.add('loaded');
+            else img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+
             wrap.addEventListener('click', () => {
               if (animating) return;
               const offset = ((idx - active) % total + total + half) % total - half;
@@ -316,7 +330,6 @@
             document.getElementById('metaExif').textContent = p.exif;
             document.getElementById('filmCounter').textContent = String(active + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
             document.getElementById('progressFill').style.width = ((active + 1) / total * 100).toFixed(0) + '%';
-            document.getElementById('rollLabel').textContent = String(total * 4 + 36).padStart(3, '0');
           }
 
           function navigate(dir) {
