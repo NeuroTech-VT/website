@@ -8,7 +8,6 @@ The following pages are placeholders awaiting content:
 
 - **alumni-network.html** — Alumni network page
 - **arxiv.html** — arXiv publications page
-- **sponsors-onboarding.html** — Sponsor onboarding flow
 
 ## Directory Structure
 
@@ -28,7 +27,6 @@ The following pages are placeholders awaiting content:
 ├── sponsors.css            # Sponsors page styles
 ├── alumni-network.html     # Alumni network page (placeholder)
 ├── arxiv.html              # arXiv page (placeholder)
-├── sponsors-onboarding.html # Sponsor onboarding page (placeholder)
 ├── research/               # Detailed research project pages
 │   ├── drone-swarm.html    # Drone Swarm project details
 │   ├── eeg-wheelchair.html # EEG Wheelchair project overview

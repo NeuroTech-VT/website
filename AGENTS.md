@@ -27,7 +27,6 @@ The primary research project is an **EEG-powered wheelchair add-on** that transl
 ├── sponsors.css              # Sponsors page styles
 ├── alumni-network.html       # Alumni network page (placeholder)
 ├── arxiv.html                # arXiv publications page (placeholder)
-├── sponsors-onboarding.html  # Sponsor onboarding page (placeholder)
 ├── CNAME                     # Domain config (www.neurotechvt.org)
 ├── research/                 # Detailed research project pages
 │   ├── drone-swarm.html     # Drone Swarm project details
@@ -52,7 +51,6 @@ The primary research project is an **EEG-powered wheelchair add-on** that transl
 The following pages exist but contain only minimal placeholder content:
 - **`alumni-network.html`** — Alumni network page
 - **`arxiv.html`** — arXiv publications page
-- **`sponsors-onboarding.html`** — Sponsor onboarding flow
 
 ---
 
@@ -111,7 +109,7 @@ python3 -m http.server 8000
 3. Update the filmstrip gallery if needed
 
 ### Placeholder Pages — Not for Agents
-Pages like `alumni-network.html`, `arxiv.html`, and `sponsors-onboarding.html` contain minimal placeholder content waiting for real project information. Agents should **not** write content for these pages — they require input from team members with project knowledge.
+Pages like `alumni-network.html` and `arxiv.html` contain minimal placeholder content waiting for real project information. Agents should **not** write content for these pages — they require input from team members with project knowledge.
 
 ### Working on Responsive Design
 1. See `docs/responsive-mobile-plan.md` for a full audit and phased improvement plan
@@ -147,7 +145,7 @@ Push changes to the main branch to trigger deployment via **GitHub Pages**. The 
 - The content alignment toggle uses `localStorage` key `content-align`
 - The theme toggle uses `localStorage` key `theme`
 - When asked about elements that exist throughout many pages (e.g., nav links, buttons), always check the `research/` subpages in addition to the root-level HTML files — for example, the arXiv link in the top bar exists on 9 pages: index.html, research.html, team.html, blog.html, sponsors.html, and research/{eeg-wheelchair.html, eeg-wheelchair-hardware.html, eeg-wheelchair-software.html, drone-swarm.html}
-- **Placeholder pages** (alumni-network.html, arxiv.html, sponsors-onboarding.html) are minimal — they link from other pages but have no real content yet. Agents must **not** write page content for these — they require team members with project knowledge
+- **Placeholder pages** (alumni-network.html, arxiv.html) are minimal — they link from other pages but have no real content yet. Agents must **not** write page content for these — they require team members with project knowledge
 - **Contact button** uses `mailto:neurotechatvt@proton.me` — see `docs/contact-fallback-feature.md` for the planned fallback behavior if no email client is configured
 - **Responsive design** is a work in progress — see `docs/responsive-mobile-plan.md` for the full audit. Several phases have been completed (touch targets, grid layout, spacing, global consistency) but advanced features (hamburger menu) remain TODO
 - **CSS breakpoints**: Site uses 900px, 768px, 600px, and 400px breakpoints. Responsive rules are spread across `styles.css` and page-specific CSS files
