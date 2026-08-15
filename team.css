@@ -69,27 +69,24 @@
     /* left-aligned under the group label so cards and headings share an edge */
     justify-content: start;
   }
-  /* Electronics / Subsystem / Software side by side; each team's cards stack below its heading */
+  /* Leadership / Electronics / Subsystem / Software side by side; each group's cards stack below its heading */
   .team-groups-row {
     display: grid;
-    /* columns hug their content and pack left instead of spreading full-width */
-    grid-template-columns: repeat(3, auto);
-    justify-content: start;
-    column-gap: 24px;
+    /* four equal columns filling the centered content column — at 200px-per-card
+       the four groups would overflow .team-page-inner, so they share the width */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 16px;
     border-bottom: 1px solid var(--border);
   }
   .team-group .member-card-grid {
-    grid-template-columns: minmax(0, 200px);
+    grid-template-columns: minmax(0, 1fr);
+    padding: 8px 14px 20px;
     border-bottom: none;
     align-content: start;
   }
   @media (max-width: 900px) {
     /* two team groups per row on small screens, cards filling their column */
     .team-groups-row { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; }
-    .team-group .member-card-grid {
-      grid-template-columns: minmax(0, 1fr);
-      padding: 8px 14px 20px;
-    }
   }
   .member-card2 {
     display: flex;
