@@ -1,4 +1,10 @@
   /* TEAM PAGE */
+  /* centered content column, matching .project-desc-inner on the landing page.
+     Sections stay full-bleed so their border-top still spans the viewport. */
+  .team-page-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
   /* section titles, matching .sponsors-about-title on the sponsors page */
   .member-section-header {
     padding: 24px 14px 4px;
