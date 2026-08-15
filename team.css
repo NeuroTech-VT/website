@@ -76,7 +76,6 @@
        the four groups would overflow .team-page-inner, so they share the width */
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 16px;
-    border-bottom: 1px solid var(--border);
   }
   .team-group .member-card-grid {
     grid-template-columns: minmax(0, 1fr);
