@@ -127,7 +127,7 @@
                     The initial prototype uses three classes: feet (forward), right hand (rotate right), and rest. This is a deliberate choice to minimize system complexity and prioritize a functional, usable prototype over premature feature expansion. The final product will allow the user to either choose which hand should be used to rotate the wheelchair, or to use both hands to rotate on both sides: feet (forward), right hand (rotate right), left hand (rotate left), and rest.
                 </p>
                 <p>
-                    [add short description about the joystick cap]
+                    The mechanical interface is a cap that mounts over the joystick. When a command is decoded, servos driven by the Arduino push the cap to move the joystick in the intended direction. The chair's own electronics are never touched, so the original joystick controls remain available.
                 </p>
             </div>
 
@@ -137,17 +137,17 @@
                     This is the software that learns to recognize each user's imagined movements from their EEG signal. It starts with simple, well-understood methods and benchmarks against MOABB (Mother of All BCI Benchmarks) for standardized comparison. Complexity is added only when the data demands it.
                 </p>
                 <p>
-                    We begin with conventional classification models such as LDA and SVM with CSP features, as they are lightweight and predictable. If these hit a wall in accuracy, we will move to deep learning approaches like CNNs or transformers. 
-                </p>
-                <p>
-                    All models are benchmarked against MOABB (Mother of All BCI Benchmarks) for standardized comparison.
+                    We begin with conventional classification models such as LDA and SVM with CSP features, as they are lightweight and predictable. If these hit a wall in accuracy, we will move to deep learning approaches like CNNs or transformers.
                 </p>
             </div>
 
             <div class="project-section">
                 <div class="project-section-label">Hardware</div>
                 <p>
-                    [add description here]
+                    The system has two main pieces of hardware: a non-invasive EEG headset worn by the user, and the add-on unit mounted on the wheelchair.
+                </p>
+                <p>
+                    The headset records the brain's electrical activity while the user imagines movements. The add-on unit turns decoded commands into physical motion. An Arduino runs the firmware that receives each command and drives small servos, which move the cap mounted on the joystick. Because the add-on sits on top of the joystick rather than wiring into the chair, it adapts across chair types and leaves the original controls intact.
                 </p>
             </div>
 
@@ -159,10 +159,8 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Fall 2026</div>
-                        <div class="timeline-body"><span class="timeline-check">✓</span> <strong>Initial Prototype</strong> Crude version of classification model (70% acc. on training dataset) was connected to the Arduino firmware, which managed to move servos connected to the Arduino.</div>
+                        <div class="timeline-body"><strong>Initial Prototype</strong> Crude version of classification model (70% acc. on training dataset) was connected to the Arduino firmware, which managed to move servos connected to the Arduino.</div>
                     </div>
-                    <span class="timeline-active">→</span>
-                    <span class="timeline-todo">○</span>
                 </div>
             </div>
 
@@ -172,8 +170,7 @@
                     The long-term goal is a chair that feels natural to drive, reliable enough for daily use in hallways, grocery stores, and campus sidewalks. Getting there means moving from single, discrete commands toward smooth, continuous control.
                 </p>
                 <p>
-                    Next steps:
-                    - Allow for continuous input alongside discrete commands (for example, one command to go forward by 8 feet instead of 4 commands of moving 2 feet forward)
+                    The immediate goal is to allow continuous input alongside discrete commands. For example, a single command to go forward by 8 feet rather than four separate commands of 2 feet each.
                 </p>
             </div>
 
