@@ -62,81 +62,71 @@
             <!-- avatar placeholder, defined once and referenced by every member card -->
             <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
                 <symbol id="pfp-placeholder" viewBox="0 0 48 48">
-                    <clipPath id="pfp-clip"><circle cx="24" cy="24" r="23.25"/></clipPath>
-                    <circle cx="24" cy="24" r="23.25" fill="var(--bg3)" stroke="var(--border)" stroke-width="1.5"/>
-                    <g clip-path="url(#pfp-clip)" fill="var(--fg3)" opacity="0.45">
-                        <circle cx="24" cy="19" r="7.5"/>
-                        <circle cx="24" cy="43" r="13"/>
-                    </g>
+                    <circle cx="24" cy="24" r="23.25" fill="none" stroke="var(--fg3)" stroke-width="1.5"/>
+                    <circle cx="24" cy="19" r="7.5" fill="none" stroke="var(--fg3)" stroke-width="1.5"/>
+                    <path d="M 14 43 a 10 10 0 0 1 20 0" fill="none" stroke="var(--fg3)" stroke-width="1.5"/>
                 </symbol>
             </svg>
 
-            <div class="team-page-inner">
-                <div class="member-section-header"><span>Leadership</span></div>
-                <div class="team-groups-row">
-                    <div class="team-group">
-                        <div class="member-group-label">Team Lead</div>
-                        <div class="member-card-grid">
-                            <div class="member-card2">
-                                <svg class="member-card2-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
-                                <div class="member-card2-name">Rohit Malavathu</div>
-                            </div>
+            <div class="board-container">
+                <h1 class="board-title">Team Leads</h1>
+                <div class="board">
+                    <div class="board-member">
+                        <div class="img-wrap">
+                            <svg class="board-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
                         </div>
+                        <h2 class="board-name">Rohit Malavathu</h2>
+                        <p class="board-role">Team Lead</p>
                     </div>
-                    <div class="team-group">
-                        <div class="member-group-label">Electronics</div>
-                        <div class="member-card-grid">
-                            <div class="member-card2">
-                                <svg class="member-card2-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
-                                <div class="member-card2-name">Matthew Smith</div>
-                            </div>
+                    <div class="board-member">
+                        <div class="img-wrap">
+                            <svg class="board-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
                         </div>
+                        <h2 class="board-name">Matthew Smith</h2>
+                        <p class="board-role">Electronics</p>
                     </div>
-                    <div class="team-group">
-                        <div class="member-group-label">Subsystem</div>
-                        <div class="member-card-grid">
-                            <div class="member-card2">
-                                <svg class="member-card2-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
-                                <div class="member-card2-name">Mahima Sachan</div>
-                            </div>
+                    <div class="board-member">
+                        <div class="img-wrap">
+                            <svg class="board-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
                         </div>
+                        <h2 class="board-name">Mahima Sachan</h2>
+                        <p class="board-role">Subsystem</p>
                     </div>
-                    <div class="team-group">
-                        <div class="member-group-label">Software</div>
-                        <div class="member-card-grid">
-                            <div class="member-card2">
-                                <svg class="member-card2-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
-                                <div class="member-card2-name">Jungmin Hong</div>
-                            </div>
+                    <div class="board-member">
+                        <div class="img-wrap">
+                            <svg class="board-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
                         </div>
+                        <h2 class="board-name">Jungmin Hong</h2>
+                        <p class="board-role">Software</p>
                     </div>
-                </div>
-
-                <div class="member-group-label">Senior Engineer</div>
-                <div class="member-card-grid">
-                    <div class="member-card2">
-                        <svg class="member-card2-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
-                        <div class="member-card2-name">Max</div>
+                    <div class="board-member">
+                        <div class="img-wrap">
+                            <svg class="board-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
+                        </div>
+                        <h2 class="board-name">Max</h2>
+                        <p class="board-role">Senior Engineer</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="member-section-header"><span>Faculty advisors</span></div>
-                <div class="member-card-grid">
-                    <div class="member-card2">
-                        <svg class="member-card2-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
-                        <div class="member-card2-name">Dr. Ryan K. Williams</div>
-                        <div class="member-card2-major">Faculty · ECE</div>
-                        <div class="member-card2-links">
-                            <a href="https://ece.vt.edu/people/profile/williams.html" class="member-card2-btn">Website ↗</a>
+            <div class="board-container">
+                <h1 class="board-title">Faculty Advisors</h1>
+                <div class="board board-faculty">
+                    <div class="board-member">
+                        <div class="img-wrap">
+                            <svg class="board-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
                         </div>
+                        <h2 class="board-name">Dr. Ryan K. Williams</h2>
+                        <p class="board-role">Faculty · ECE</p>
+                        <a href="https://ece.vt.edu/people/profile/williams.html" class="board-link">Website ↗</a>
                     </div>
-                    <div class="member-card2">
-                        <svg class="member-card2-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
-                        <div class="member-card2-name">Dr. Mark A. Cline</div>
-                        <div class="member-card2-major">Faculty · School of Neuroscience</div>
-                        <div class="member-card2-links">
-                            <a href="https://neuroscience.vt.edu/our-people/instructional-faculty/cline-mark.html" class="member-card2-btn">Website ↗</a>
+                    <div class="board-member">
+                        <div class="img-wrap">
+                            <svg class="board-avatar" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#pfp-placeholder"/></svg>
                         </div>
+                        <h2 class="board-name">Dr. Mark A. Cline</h2>
+                        <p class="board-role">Faculty · School of Neuroscience</p>
+                        <a href="https://neuroscience.vt.edu/our-people/instructional-faculty/cline-mark.html" class="board-link">Website ↗</a>
                     </div>
                 </div>
             </div>
