@@ -67,15 +67,54 @@
             <div class="project-section">
                 <div class="project-section-label">Why develop BCI when there are already many other established ways to control a wheelchair?</div>
                 <p>
-                    1. mention the already-established wheelchair control methods alternative to the hand joystick (sip and puff and chin joystick being the most popular alternatives -- insert a chart. for the exact statistics, cite "A review and appraisal of clinically prevalent control devices for electrically powered wheelchairs" (2013))
-
-                    2. talk about the limitations of these preestablished alternative methods and position BCI as an emerging alternative to wheelchair control when the patient cannot use control methods that are already available (especially motor imagery, with its lesser need to stare on a blinking screen and its potential intuitiveness due to the nature of imagined motion). 
-
-                    (add enough context around instead of just inserting these quotes standalone; these are like bookmarks I'm placing on the paper so that constructing claims is easier from there)
-                    "[...]Ten users (16%) could no longer use their EPW or were described as having great difficulty." (section 3.1 of the same paper)
-                    " It was also reported that 85% of respondents said that they evaluated patients for whom EPWs were not an option as they could not control them due to their lack of motor skills, strength or visual acuity. It was estimated that 18–26% of non-ambulant wheelchair users who could not self-propel a manual wheelchair were also unable to operate an EPW." (cite: Fehr L, Langbein WE, Skaar SB. Adequacy of power wheelchair control interfaces for persons with severe disabilities: A clinical survey. Journal of Rehabilitation Research and Development 2000; 37 (3): 353-360.)
-                    sip and puff being prone to false activation due to shocks and vibration (cite: Jones M, Grogg K, Anschutz J, and Fierman R. A Sip-and-Puff Wireless Remote Control for the Apple iPod. Assistive Technology 2008; 20: 107-110.)
+                    The vast majority of electrically powered wheelchair (EPW) users drive with a hand joystick. Across the four prevalence studies reviewed by Henderson and co-workers (2013), hand joysticks accounted for roughly 84–92% of control devices in use. The joystick is intuitive, proportional, and inexpensive, and for most users it is the right answer. But it is not available to everyone: contraindications include poor hand muscle strength, limited joint mobility and dexterity, poor proprioception, hand tremors, and upper-limb spasticity. Patients with advanced multiple sclerosis or motor neurone disease, severe cerebral palsy, or high-level spinal cord injury may lack the hand function the joystick requires.
                 </p>
+                <p>
+                    For users who cannot operate a hand joystick, the two most established alternatives are sip-and-puff and chin joysticks. Across the same studies, sip-and-puff accounted for 4–8% of users and chin or head control for 4–8%:
+                </p>
+                <table class="bom-table">
+                    <thead>
+                        <tr>
+                            <th>Control device</th>
+                            <th>Share of EPW users</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hand joystick</td>
+                            <td>84–92%</td>
+                        </tr>
+                        <tr>
+                            <td>Sip and puff</td>
+                            <td>4–8%</td>
+                        </tr>
+                        <tr>
+                            <td>Chin or head control</td>
+                            <td>4–8%</td>
+                        </tr>
+                        <tr>
+                            <td>Other (switches, tongue, eye gaze)</td>
+                            <td>~1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Prevalence is not the whole story. On the NHS Scottish contract reviewed in the same study, hand joysticks came standard on all 20 EPW models, while chin joysticks were offered on only 7 (35%) and sip-and-puff on only 3 (15%). The alternatives exist, but they carry their own limitations. Sip-and-puff is a latched control: once a command is given, the chair keeps executing it until another signal is received, which can be hazardous if the user is inactive after initiating a command. It is also prone to false activation from shocks and vibration — for example when travelling over uneven ground (Jones et al., 2008) — and it offers a limited set of discrete commands rather than proportional control. Chin joysticks require good head and neck range of motion and strength, fatigue over long periods of use, place hardware directly in front of the user's face, and can hinder sitting balance (Henderson et al., 2013).
+                </p>
+                <p>
+                    These limitations are not edge cases. In a clinical survey of power wheelchair providers, 85% of respondents had evaluated patients for whom an EPW was not an option because they could not control one — due to lack of motor skills, strength, or visual acuity — and an estimated 18–26% of non-ambulant wheelchair users who could not self-propel a manual wheelchair were also unable to operate an EPW (Fehr et al., 2000). In an earlier cohort of 64 EPW users, ten (16%) either could no longer use their chair or were described as having great difficulty with it (Henderson et al., 2013).
+                </p>
+                <p>
+                    Brain-computer interfaces are one emerging route to closing this gap. Non-invasive EEG requires no residual muscle control: the user imagines a movement, and the system decodes the intention from brain activity. Among BCI paradigms, motor imagery is a particularly natural fit for wheelchair control. Unlike P300 or steady-state visual evoked potential (SSVEP) paradigms, it does not require the user to stare at a blinking screen to issue commands, and because the imagined movement maps directly onto the wheelchair's motion, the mapping is intuitive. This is the gap this project addresses: a control path that does not depend on residual motor function, and does not demand the posture or sustained attention that existing alternatives do.
+                </p>
+                <ol class="project-references">
+                    <li>Henderson GI, Dolan MJ, Geggie CJ. A review and appraisal of clinically prevalent control devices for electrically powered wheelchairs. Technology and Disability. 2013;25(4):221–232.</li>
+                    <li>Fehr L, Langbein WE, Skaar SB. Adequacy of power wheelchair control interfaces for persons with severe disabilities: A clinical survey. Journal of Rehabilitation Research and Development. 2000;37(3):353–360.</li>
+                    <li>Jones M, Grogg K, Anschutz J, Fierman R. A Sip-and-Puff Wireless Remote Control for the Apple iPod. Assistive Technology. 2008;20:107–110.</li>
+                </ol>
+            </div>
+
+            <div class="project-section">
                 <div class="project-section-label">Overview</div>
                 <p>
                     When someone imagines moving their feet or a hand, the brain produces measurable electrical patterns even when the body can't follow through. A non-invasive EEG headset picks up those patterns, and the system translates them into driving commands.

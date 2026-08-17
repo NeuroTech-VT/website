@@ -134,6 +134,18 @@
 .timeline-active { color: var(--accent2); margin-right: 5px; }
 .timeline-todo   { color: var(--fg3);     margin-right: 5px; }
 
+/* REFERENCES */
+.project-references {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 10px;
+  color: var(--fg3);
+  line-height: 1.7;
+  padding-left: 18px;
+}
+.project-references li { margin-bottom: 4px; }
+
 /* INLINE LINKS */
 .project-section .link {
   color: var(--blue); text-decoration: underline; cursor: pointer;
