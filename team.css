@@ -84,7 +84,7 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 520px;
   }
-  .board-faculty .img-wrap { height: 200px; }
+  .board-faculty .img-wrap { aspect-ratio: 1 / 1; }
 
   @media (max-width: 900px) {
     .board { grid-template-columns: repeat(3, 1fr); }
