@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery — NeuroTech@VT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+    <div class="root" id="root">
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div class="topbar-left">
+                
+            </div>
+            <div class="topbar-right">
+                <a href="https://github.com/orgs/NeuroTech-VT/repositories">GitHub</a>
+                <a href="mailto:neurotechatvt@proton.me">Contact</a>
+                <button class="toggle-btn" onclick="toggleTheme()"><span class="toggle-icon">☀</span> LIGHT</button>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <nav class="nav">
+            <a href="index.html" class="nav-logo">
+                <img src="NeuroTech_VT_cropped.svg" alt="logo">
+            </a>
+            <div class="nav-links">
+                <a href="research.html" class="scramble-hover" data-label="Research">Research</a>
+                <a href="team.html" class="scramble-hover" data-label="Team">Team</a>
+                <a href="gallery.html" class="active scramble-hover" data-label="Gallery">Gallery</a>
+                <a href="sponsors.html" class="scramble-hover" data-label="Sponsors">Sponsors</a>
+            </div>
+            <div class="nav-right">
+                
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="hero">
+            <canvas id="halftone-hero"></canvas>
+            <div class="hero-gradient"></div>
+            <div class="hero-main">
+                <div>
+                    <div class="hero-title">
+                        Gallery<br>
+                    </div>
+                    <div class="hero-desc">
+                        Photos of the team, our prototypes, and the work in progress.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALLERY CONTENT -->
+        <div class="gallery-col">
+            <div class="gallery-grid">
+                <img src="team-page-photowheel/web/01-team.jpg" alt="Five NeuroTech@VT members posing together in the lab classroom, one seated in the wheelchair prototype." loading="lazy" decoding="async">
+                <img src="team-page-photowheel/web/02-eeg-headset.jpg" alt="A team member holding up the wired EEG electrode cap to inspect it." loading="lazy" decoding="async">
+                <img src="team-page-photowheel/web/03-signal-acquisition.jpg" alt="Laptop running EEG acquisition software with live channel traces, in front of a Virginia Tech podium." loading="lazy" decoding="async">
+                <img src="team-page-photowheel/web/04-electronics-bench.jpg" alt="A team member giving a thumbs up at a bench covered in motors, wiring and battery packs." loading="lazy" decoding="async">
+                <img src="team-page-photowheel/web/05-eeg-session.jpg" alt="One member wearing the EEG cap while another points at the incoming signals on a laptop." loading="lazy" decoding="async">
+                <img src="team-page-photowheel/web/06-wheelchair-test.jpg" alt="Two members fitting the drive module to the wheelchair prototype during an integration test." loading="lazy" decoding="async">
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span>NEUROTECH@VT · Virginia Tech · Blacksburg, VA 24061</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
