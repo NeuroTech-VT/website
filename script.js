@@ -195,21 +195,37 @@ initTheme();
   function animate(item, opening) {
     const body = item.querySelector('.qa-body');
     if (!body) return;
-    const start = body.offsetHeight;
-    item.open = opening;
-    const end = body.offsetHeight;
+
+    // Token guards against a new click interrupting an in-flight animation.
+    const token = (body.__qaAnim || 0) + 1;
+    body.__qaAnim = token;
+
     body.style.transition = 'none';
+    body.style.maxHeight = '';
+    body.style.overflow = '';
+
+    // When opening, the closed <details> hides .qa-body (display:none), so
+    // content must be rendered before its height can be measured.
+    if (opening) item.open = true;
+
+    body.style.maxHeight = (opening ? 0 : body.scrollHeight) + 'px';
     body.style.overflow = 'hidden';
-    body.style.height = start + 'px';
-    // Force reflow so the start height is committed before transitioning.
-    void body.offsetHeight;
-    body.style.transition = 'height ' + DURATION + 'ms ease';
-    body.style.height = end + 'px';
-    setTimeout(() => {
-      body.style.height = '';
-      body.style.overflow = '';
+    void body.offsetHeight; // commit the start state
+
+    body.style.transition = 'max-height ' + DURATION + 'ms ease';
+    body.style.maxHeight = (opening ? body.scrollHeight : 0) + 'px';
+
+    const finish = () => {
+      if (body.__qaAnim !== token) return;
       body.style.transition = '';
-    }, DURATION + 40);
+      body.style.maxHeight = '';
+      body.style.overflow = '';
+      if (!opening) item.open = false; // hide only after the collapse completes
+      body.removeEventListener('transitionend', finish);
+    };
+    body.addEventListener('transitionend', finish);
+    // Fallback in case transitionend never fires (rapid toggles, etc.).
+    setTimeout(finish, DURATION + 60);
   }
 
   items.forEach(item => {
