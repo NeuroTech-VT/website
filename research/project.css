@@ -134,7 +134,81 @@
 .timeline-active { color: var(--accent2); margin-right: 5px; }
 .timeline-todo   { color: var(--fg3);     margin-right: 5px; }
 
+/* PROTOTYPE FIGURES */
+.prototype-figures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+  max-width: 560px;
+}
+.project-col:not(.project-col--left) .prototype-figures { margin-left: auto; margin-right: auto; }
+.prototype-figure { margin: 0; }
+.prototype-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
 /* REFERENCES */
+
+/* Q&A */
+.qa-box {
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  background: var(--bg2);
+  padding: 6px 18px;
+}
+.qa-item {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+.qa-item:first-child { padding-top: 8px; }
+.qa-item:last-child { border-bottom: none; padding-bottom: 8px; }
+.qa-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--accent2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  transition: color 0.15s ease;
+}
+.qa-item summary:hover { color: var(--fg); }
+.qa-item summary::-webkit-details-marker { display: none; }
+.qa-item summary::after {
+  content: '›';
+  font-family: var(--mono);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--fg3);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.qa-item[open] summary::after {
+  transform: rotate(90deg);
+}
+.qa-body {
+  padding: 10px 0 4px;
+  overflow: hidden;
+}
+.qa-body p {
+  font-size: 12px;
+  color: var(--fg2);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.qa-body p:last-child { margin-bottom: 0; }
+.qa-body .bom-table { margin-top: 12px; }
+.qa-body .project-references { margin-top: 4px; }
 .project-references {
   margin-top: 16px;
   padding-top: 10px;
@@ -240,4 +314,5 @@
   .bom-table th,
   .bom-table td { padding: 4px 6px; }
   .code-block { padding: 8px 10px; font-size: 10px; }
+  .prototype-figures { grid-template-columns: 1fr; gap: 12px; }
 }

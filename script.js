@@ -184,3 +184,40 @@ initTheme();
     });
   });
 })();
+
+// ── Q&A COLLAPSE ──
+(function() {
+  const items = document.querySelectorAll('.qa-item');
+  if (!items.length) return;
+
+  const DURATION = 220;
+
+  function animate(item, opening) {
+    const body = item.querySelector('.qa-body');
+    if (!body) return;
+    const start = body.offsetHeight;
+    item.open = opening;
+    const end = body.offsetHeight;
+    body.style.transition = 'none';
+    body.style.overflow = 'hidden';
+    body.style.height = start + 'px';
+    // Force reflow so the start height is committed before transitioning.
+    void body.offsetHeight;
+    body.style.transition = 'height ' + DURATION + 'ms ease';
+    body.style.height = end + 'px';
+    setTimeout(() => {
+      body.style.height = '';
+      body.style.overflow = '';
+      body.style.transition = '';
+    }, DURATION + 40);
+  }
+
+  items.forEach(item => {
+    const summary = item.querySelector('summary');
+    if (!summary) return;
+    summary.addEventListener('click', function(e) {
+      e.preventDefault();
+      animate(item, !item.open);
+    });
+  });
+})();
