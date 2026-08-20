@@ -1,5 +1,7 @@
 # AGENTS.md — NeuroTech@VT Website
 
+> IMPORTANT: This is my actual desktop where my entire life is based on (it contains important documents, photos, financial information, work projects, etc), not a sandbox or container environment. Do not mess with system settings, and always use bash one command at a time so that human-in-the-loop authorizations are more granular. Use venv instead of adding packages to system python. 
+
 ## Project Overview
 
 This is the official website for **NeuroTech@VT** (https://neurotechatvt.org/), a student organization at Virginia Tech building applied brain-computer interface (BCI) systems. The site is a static HTML/CSS/JS website that showcases research projects, team members, blog updates, and sponsors.

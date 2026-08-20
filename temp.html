@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeuroTech_VT — Brightness Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --fg: #e8e6e3;
+    --muted: #8a8a93;
+    --accent: #4fd1c5;
+    --panel: #161a22;
+    --border: #262c38;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "IBM Plex Mono", monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+  }
+  h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    color: var(--accent);
+  }
+  .sub { color: var(--muted); font-size: 0.8rem; margin-bottom: 24px; text-align: center; }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    width: 100%;
+    max-width: 920px;
+  }
+  .stage {
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 60vh;
+  }
+  canvas {
+    max-width: 100%;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    image-rendering: auto;
+    display: block;
+  }
+  .controls {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  label { font-size: 0.85rem; color: var(--muted); min-width: 90px; }
+  input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #0d0f14;
+    cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #0d0f14;
+    cursor: pointer;
+  }
+  .value {
+    font-size: 0.85rem;
+    min-width: 52px;
+    text-align: right;
+    color: var(--fg);
+  }
+  .save-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  button {
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: #0d0f14;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+  }
+  button:hover { filter: brightness(1.15); }
+  button:active { filter: brightness(0.9); }
+  .meta { font-size: 0.75rem; color: var(--muted); }
+  .error {
+    display: none;
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    padding: 12px;
+    border: 1px solid #ff6b6b;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>NeuroTech_VT — Brightness Editor</h1>
+  <p class="sub">Source: NeuroTech_VT_bw.png &nbsp;·&nbsp; Save as NeuroTech_VT_bw-modified.png</p>
+
+  <div class="error" id="error"></div>
+
+  <div class="panel">
+    <div class="stage">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="controls">
+      <div class="slider-row">
+        <label for="brightness">Brightness</label>
+        <input type="range" id="brightness" min="0" max="300" value="100" step="1">
+        <span class="value" id="value">100%</span>
+      </div>
+
+      <div class="save-row">
+        <span class="meta" id="meta"></span>
+        <button id="save">Save PNG</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const slider = document.getElementById('brightness');
+  const value = document.getElementById('value');
+  const meta = document.getElementById('meta');
+  const error = document.getElementById('error');
+  const saveBtn = document.getElementById('save');
+
+  const img = new Image();
+  img.src = 'NeuroTech_VT_bw.png';
+
+  img.onload = function () {
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    meta.textContent = img.naturalWidth + ' × ' + img.naturalHeight + ' px';
+    render();
+  };
+
+  img.onerror = function () {
+    error.style.display = 'block';
+    error.textContent = 'Failed to load NeuroTech_VT_bw.png — make sure it sits next to temp.html in the same folder.';
+  };
+
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.filter = 'brightness(' + (slider.value / 100) + ')';
+    ctx.drawImage(img, 0, 0);
+    ctx.filter = 'none';
+    value.textContent = slider.value + '%';
+  }
+
+  slider.addEventListener('input', render);
+
+  saveBtn.addEventListener('click', function () {
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = 'NeuroTech_VT_bw-modified.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+})();
+</script>
+</body>
+</html>
