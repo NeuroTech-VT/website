@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Crop &amp; Color Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --fg: #e8e6e3;
+    --muted: #8a8a93;
+    --accent: #4fd1c5;
+    --panel: #161a22;
+    --border: #262c38;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "IBM Plex Mono", monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+  }
+  h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    color: var(--accent);
+  }
+  .sub { color: var(--muted); font-size: 0.8rem; margin-bottom: 24px; text-align: center; }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    width: 100%;
+    max-width: 920px;
+  }
+  .panel + .panel { margin-top: 16px; }
+  .stage {
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 60vh;
+  }
+  canvas {
+    max-width: 100%;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    image-rendering: auto;
+    display: block;
+    touch-action: none;
+    cursor: crosshair;
+  }
+  .stage-title {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .controls {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  label { font-size: 0.85rem; color: var(--muted); min-width: 90px; }
+  input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #0d0f14;
+    cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #0d0f14;
+    cursor: pointer;
+  }
+  .value {
+    font-size: 0.85rem;
+    min-width: 52px;
+    text-align: right;
+    color: var(--fg);
+  }
+  .load-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .save-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-group { display: flex; gap: 10px; }
+  button {
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: #0d0f14;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+  }
+  button:hover { filter: brightness(1.15); }
+  button:active { filter: brightness(0.9); }
+  button.secondary {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+  }
+  .meta { font-size: 0.75rem; color: var(--muted); }
+  .error {
+    display: none;
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    padding: 12px;
+    border: 1px solid #ff6b6b;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Image Crop &amp; Color Editor</h1>
+  <p class="sub">Load any PNG / JPG / WebP — pick a file or drag &amp; drop</p>
+
+  <div class="error" id="error"></div>
+
+  <div class="panel">
+    <div class="load-row">
+      <button id="pick">Load Image…</button>
+      <span class="meta" id="fileMeta">No image loaded</span>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="stage-title">1 · Select crop region (drag to draw, move, or resize)</div>
+    <div class="stage">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="stage-title">2 · Live result (crop + saturation + contrast)</div>
+    <div class="stage">
+      <canvas id="result"></canvas>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="controls">
+      <div class="slider-row">
+        <label for="saturation">Saturation</label>
+        <input type="range" id="saturation" min="0" max="300" value="100" step="1">
+        <span class="value" id="satValue">100%</span>
+      </div>
+
+      <div class="slider-row">
+        <label for="contrast">Contrast</label>
+        <input type="range" id="contrast" min="0" max="300" value="100" step="1">
+        <span class="value" id="conValue">100%</span>
+      </div>
+
+      <div class="save-row">
+        <span class="meta" id="meta"></span>
+        <div class="btn-group">
+          <button class="secondary" id="reset">Reset Crop</button>
+          <button id="save">Save PNG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const result = document.getElementById('result');
+  const rctx = result.getContext('2d');
+  const satSlider = document.getElementById('saturation');
+  const conSlider = document.getElementById('contrast');
+  const satValue = document.getElementById('satValue');
+  const conValue = document.getElementById('conValue');
+  const meta = document.getElementById('meta');
+  const error = document.getElementById('error');
+  const saveBtn = document.getElementById('save');
+  const resetBtn = document.getElementById('reset');
+
+  const img = new Image();
+  const fileInput = document.getElementById('fileInput');
+  const pickBtn = document.getElementById('pick');
+  const fileMeta = document.getElementById('fileMeta');
+  let sourceName = 'image';
+  let loadedFile = null;
+  let loaded = false;
+
+  // Crop rect in image pixel coordinates. Default: center 80% box.
+  let crop = { x: 0, y: 0, w: 0, h: 0 };
+
+  // Interaction state
+  let drag = null;       // { mode: 'draw'|'move'|'resize', handle, startX, startY, origCrop }
+  const MIN_SIZE = 16;
+
+  // 8 handles: TL, T, TR, R, BR, B, BL, L
+  const HANDLES = [
+    { x: 0, y: 0 }, { x: 0.5, y: 0 }, { x: 1, y: 0 },
+    { x: 1, y: 0.5 }, { x: 1, y: 1 }, { x: 0.5, y: 1 },
+    { x: 0, y: 1 }, { x: 0, y: 0.5 }
+  ];
+
+  function posFromEvent(e) {
+    const rect = canvas.getBoundingClientRect();
+    const sx = canvas.width / rect.width;
+    const sy = canvas.height / rect.height;
+    return {
+      x: (e.clientX - rect.left) * sx,
+      y: (e.clientY - rect.top) * sy
+    };
+  }
+
+  function clampRect(r) {
+    r.x = Math.max(0, Math.min(img.naturalWidth - r.w, r.x));
+    r.y = Math.max(0, Math.min(img.naturalHeight - r.h, r.y));
+    return r;
+  }
+
+  function handleAt(p, pad) {
+    pad = pad || 24;
+    for (let i = 0; i < HANDLES.length; i++) {
+      const hx = crop.x + HANDLES[i].x * crop.w;
+      const hy = crop.y + HANDLES[i].y * crop.h;
+      if (Math.abs(p.x - hx) <= pad && Math.abs(p.y - hy) <= pad) return i;
+    }
+    return -1;
+  }
+
+  function resizeCrop(start, orig, handle, dx, dy) {
+    let { x, y, w, h } = orig;
+    const left   = handle === 0 || handle === 6 || handle === 7;
+    const right  = handle === 2 || handle === 3 || handle === 4;
+    const top    = handle === 0 || handle === 1 || handle === 2;
+    const bottom = handle === 4 || handle === 5 || handle === 6;
+
+    if (left)   { const nx = start.x + dx; w += x - nx; x = nx; }
+    if (right)  { w = start.x + dx - x; }
+    if (top)    { const ny = start.y + dy; h += y - ny; y = ny; }
+    if (bottom) { h = start.y + dy - y; }
+
+    if (w < MIN_SIZE) { if (left) x -= MIN_SIZE - w; w = MIN_SIZE; }
+    if (h < MIN_SIZE) { if (top) y -= MIN_SIZE - h; h = MIN_SIZE; }
+    return clampRect({ x, y, w, h });
+  }
+
+  img.onload = function () {
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    crop = {
+      x: Math.round(img.naturalWidth * 0.1),
+      y: Math.round(img.naturalHeight * 0.1),
+      w: Math.round(img.naturalWidth * 0.8),
+      h: Math.round(img.naturalHeight * 0.8)
+    };
+    loaded = true;
+    error.style.display = 'none';
+    fileMeta.textContent = sourceName + ' — loaded' + (loadedFile ? ' (' + formatBytes(loadedFile.size) + ')' : '');
+    updateMeta();
+    render();
+  };
+
+  img.onerror = function () {
+    error.style.display = 'block';
+    error.textContent = 'Failed to load the selected image — try a different file.';
+  };
+
+  function loadFile(f) {
+    loadedFile = f;
+    sourceName = (f.name || 'image').replace(/\.[^.]+$/, '');
+    if (img.src && img.src.indexOf('blob:') === 0) URL.revokeObjectURL(img.src);
+    img.src = URL.createObjectURL(f);
+  }
+
+  pickBtn.addEventListener('click', function () {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', function () {
+    const f = fileInput.files && fileInput.files[0];
+    if (f) loadFile(f);
+    fileInput.value = '';
+  });
+
+  // Drag & drop an image anywhere on the page
+  ['dragover', 'dragenter'].forEach(function (ev) {
+    document.addEventListener(ev, function (e) { e.preventDefault(); });
+  });
+  document.addEventListener('drop', function (e) {
+    e.preventDefault();
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f && f.type && f.type.indexOf('image/') === 0) loadFile(f);
+  });
+
+  function formatBytes(b) {
+    if (!b) return '';
+    const units = ['B', 'KB', 'MB', 'GB'];
+    let i = 0;
+    let v = b;
+    while (v >= 1024 && i < units.length - 1) { v /= 1024; i++; }
+    return v.toFixed(v >= 10 || i === 0 ? 0 : 1) + ' ' + units[i];
+  }
+
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    rctx.clearRect(0, 0, result.width, result.height);
+    if (!loaded) return;
+    ctx.drawImage(img, 0, 0);
+
+    // Dim everything outside the crop rect
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+    ctx.fillRect(0, 0, canvas.width, crop.y);
+    ctx.fillRect(0, crop.y + crop.h, canvas.width, canvas.height - crop.y - crop.h);
+    ctx.fillRect(0, crop.y, crop.x, crop.h);
+    ctx.fillRect(crop.x + crop.w, crop.y, canvas.width - crop.x - crop.w, crop.h);
+
+    // Crop border
+    ctx.strokeStyle = '#4fd1c5';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(crop.x + 1, crop.y + 1, crop.w - 2, crop.h - 2);
+
+    // Handles
+    const hs = 8;
+    ctx.fillStyle = '#4fd1c5';
+    for (const h of HANDLES) {
+      const hx = crop.x + h.x * crop.w;
+      const hy = crop.y + h.y * crop.h;
+      ctx.fillRect(hx - hs / 2, hy - hs / 2, hs, hs);
+    }
+
+    renderResult();
+  }
+
+  function renderResult() {
+    const w = Math.max(1, Math.round(crop.w));
+    const h = Math.max(1, Math.round(crop.h));
+    result.width = w;
+    result.height = h;
+    rctx.clearRect(0, 0, w, h);
+    rctx.filter = 'saturate(' + (satSlider.value / 100) + ') contrast(' + (conSlider.value / 100) + ')';
+    rctx.drawImage(img, crop.x, crop.y, w, h, 0, 0, w, h);
+    rctx.filter = 'none';
+
+    satValue.textContent = satSlider.value + '%';
+    conValue.textContent = conSlider.value + '%';
+    updateMeta();
+  }
+
+  function updateMeta() {
+    const w = Math.max(1, Math.round(crop.w));
+    const h = Math.max(1, Math.round(crop.h));
+    meta.textContent = (sourceName || 'image') + ' · ' + img.naturalWidth + ' × ' + img.naturalHeight +
+      ' px · crop ' + w + ' × ' + h + ' px';
+  }
+
+  // ---- Pointer interaction (mouse + touch) ----
+  canvas.addEventListener('pointerdown', function (e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    const p = posFromEvent(e);
+
+    const hi = handleAt(p);
+    if (hi >= 0) {
+      drag = { mode: 'resize', handle: hi, startX: p.x, startY: p.y, orig: { ...crop } };
+    } else if (p.x >= crop.x && p.x <= crop.x + crop.w && p.y >= crop.y && p.y <= crop.y + crop.h) {
+      drag = { mode: 'move', startX: p.x, startY: p.y, orig: { ...crop } };
+    } else {
+      drag = { mode: 'draw', startX: p.x, startY: p.y, orig: { x: p.x, y: p.y, w: 0, h: 0 } };
+    }
+  });
+
+  canvas.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    const p = posFromEvent(e);
+    const dx = p.x - drag.startX;
+    const dy = p.y - drag.startY;
+
+    if (drag.mode === 'draw') {
+      let x = Math.min(drag.startX, p.x);
+      let y = Math.min(drag.startY, p.y);
+      let w = Math.abs(p.x - drag.startX);
+      let h = Math.abs(p.y - drag.startY);
+      if (w < MIN_SIZE) w = MIN_SIZE;
+      if (h < MIN_SIZE) h = MIN_SIZE;
+      crop = clampRect({ x, y, w, h });
+    } else if (drag.mode === 'move') {
+      let x = drag.orig.x + dx;
+      let y = drag.orig.y + dy;
+      crop = clampRect({ x, y, w: drag.orig.w, h: drag.orig.h });
+    } else {
+      crop = resizeCrop(drag.startX, drag.startY, drag.orig, drag.handle, dx, dy);
+    }
+    render();
+  });
+
+  function endDrag(e) {
+    drag = null;
+  }
+  canvas.addEventListener('pointerup', endDrag);
+  canvas.addEventListener('pointercancel', endDrag);
+
+  satSlider.addEventListener('input', render);
+  conSlider.addEventListener('input', render);
+
+  resetBtn.addEventListener('click', function () {
+    if (!loaded) return;
+    crop = {
+      x: Math.round(img.naturalWidth * 0.1),
+      y: Math.round(img.naturalHeight * 0.1),
+      w: Math.round(img.naturalWidth * 0.8),
+      h: Math.round(img.naturalHeight * 0.8)
+    };
+    render();
+  });
+
+  saveBtn.addEventListener('click', function () {
+    if (!loaded) {
+      error.style.display = 'block';
+      error.textContent = 'Load an image first.';
+      return;
+    }
+    const w = Math.max(1, Math.round(crop.w));
+    const h = Math.max(1, Math.round(crop.h));
+    const out = document.createElement('canvas');
+    out.width = w;
+    out.height = h;
+    const octx = out.getContext('2d');
+    octx.filter = 'saturate(' + (satSlider.value / 100) + ') contrast(' + (conSlider.value / 100) + ')';
+    octx.drawImage(img, crop.x, crop.y, w, h, 0, 0, w, h);
+    octx.filter = 'none';
+
+    const a = document.createElement('a');
+    a.href = out.toDataURL('image/png');
+    a.download = sourceName + '-cropped.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+})();
+</script>
+</body>
+</html>
