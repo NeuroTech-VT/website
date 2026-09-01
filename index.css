@@ -36,15 +36,16 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     align-items: baseline;
-    gap: 10px;
+    column-gap: 0;
     font-size: 13px;
     letter-spacing: 0.1em;
     white-space: nowrap;
+    color: var(--fg);
+    font-weight: 600;
 }
-.event-rail-date { color: var(--accent2); font-weight: 600; }
-.event-rail-time { color: var(--fg2); }
-.event-rail-room { color: var(--fg); }
-.event-rail-sep  { color: var(--border2); }
+.event-rail-date,
+.event-rail-room { color: var(--accent2); }
+.event-rail-sep { color: var(--fg2); padding-right: 10px; }
 @media screen and (max-width: 700px) {
     .event-banner {
         flex-direction: column;
@@ -54,8 +55,8 @@
     }
     .event-rail-row {
         font-size: 12px;
-        gap: 8px;
     }
+    .event-rail-sep { padding-right: 8px; }
 }
 
 /* HERO SIDE */
