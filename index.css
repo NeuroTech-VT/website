@@ -1,13 +1,13 @@
 /* EVENT BANNER */
 .event-banner {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    gap: 18px;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 14px 24px;
     background: var(--bg2);
     border-bottom: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
     color: var(--fg);
     text-align: left;
 }
@@ -17,46 +17,50 @@
     font-size: 11px;
     letter-spacing: 0.14em;
     padding: 4px 12px;
-    margin-top: 2px;
     text-transform: uppercase;
     white-space: nowrap;
 }
-.event-rail {
+.event-sessions {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+}
+.event-session {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-}
-.event-rail-label {
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    color: var(--fg);
-    margin-bottom: 2px;
-}
-.event-rail-row {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    align-items: baseline;
-    column-gap: 0;
-    font-size: 13px;
-    letter-spacing: 0.1em;
+    gap: 2px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border2);
+    line-height: 1.35;
     white-space: nowrap;
-    color: var(--fg);
     font-weight: 600;
 }
-.event-rail-date,
-.event-rail-room { color: var(--accent2); }
-.event-rail-sep { color: var(--fg2); padding-right: 10px; }
-@media screen and (max-width: 700px) {
+.event-session-date {
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    color: var(--accent2);
+}
+.event-session-meta {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--fg);
+}
+.event-room { color: var(--accent2); }
+.event-sep {
+    color: var(--fg2);
+    padding-right: 6px;
+}
+@media screen and (max-width: 760px) {
     .event-banner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        gap: 12px;
+    }
+    .event-sessions {
+        flex-direction: column;
         gap: 10px;
-        padding: 14px 20px;
     }
-    .event-rail-row {
-        font-size: 12px;
-    }
-    .event-rail-sep { padding-right: 8px; }
+    .event-session { padding-left: 14px; }
 }
 
 /* HERO SIDE */
